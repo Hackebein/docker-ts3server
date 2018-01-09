@@ -16,6 +16,9 @@ RUN apk add --update \
 		/opt/teamspeak3-server_linux_amd64/ts3server_startscript.sh
 
 COPY ts3server_minimal_runscript.sh /opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh
+
+RUN chmod ugo+x \
+	/opt/teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh
 	
 EXPOSE 9987/udp 30033 10011
 
