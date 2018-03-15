@@ -1,16 +1,17 @@
 FROM frolvlad/alpine-glibc
 
-ARG TS_VERSION=3.0.13.8
+ARG TS_VERSION=3.1.1
 
 RUN apk add --update \
 		wget \
 		bzip2 \
-    && rm -rf /var/cache/apk/* \
+		ca-certificates \
+	&& rm -rf /var/cache/apk/* \
 	&& mkdir -p /opt \
-    && wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
-            -O /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
-    && tar -C /opt -jxvf /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
-    && rm /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
+	&& wget http://dl.4players.de/ts/releases/$TS_VERSION/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
+		-O /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
+	&& tar -C /opt -jxvf /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
+	&& rm /opt/teamspeak3-server_linux_amd64-$TS_VERSION.tar.bz2 \
 	&& rm -rf \
 		/opt/teamspeak3-server_linux_amd64/tsdns \
 		/opt/teamspeak3-server_linux_amd64/ts3server_startscript.sh
