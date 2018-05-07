@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-glibc
 
-ARG TS_VERSION=3.1.1
+ARG TS_VERSION=3.1.3
 
 RUN apk add --update \
 		wget \
