@@ -10,4 +10,3 @@ if [ -z "${TS3_QUERY_PASSWORD}" ]; then
 else
 	exec ./ts3server serveradmin_password=${TS3_QUERY_PASSWORD} $@
 fi
-
