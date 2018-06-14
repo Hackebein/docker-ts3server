@@ -6,7 +6,7 @@ D1=$(readlink -f "$0")
 D2=$(dirname "${D1}")
 cd "${D2}"
 
-if [ "${TS3_PATCH_BADGES_DISABLE}" = "true" ]; then
+if [ "${TS3_PATCH_BADGES_DISABLE}" -eq "true" ]; then
 	sed -e 's/\o0client_badges\o0/\o0client_badxxx\o0/g' -i ts3server
 fi
 
