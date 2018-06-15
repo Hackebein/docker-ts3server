@@ -28,7 +28,7 @@ RUN apk add --update  --no-cache \
     && chown root:root /app/* \
 	&& mv /app/*.so /usr/local/lib \
 	&& mv /app/redist/*.so /usr/local/lib || true \
-	#&& ldconfig /usr/local/lib \
+	&& ldconfig /usr/local/lib \
 	&& touch /app/ts3server.ini /app/ts3db.ini\
     && chown 1000:1000 /app/* \
 	&& chmod ugo+x /app/ts3server_startscript.sh \

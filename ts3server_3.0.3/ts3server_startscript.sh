@@ -102,32 +102,32 @@ fi
 # filetransfer_port=30033
 
 cat <<- EOF >/app/ts3server.ini
-    licensepath=${TS3SERVER_LICENSEPATH}
-    query_ip_whitelist=${TS3SERVER_IP_WHITELIST}
-    query_ip_blacklist=${TS3SERVER_IP_BLACKLIST}
-    dbplugin=${TS3SERVER_DB_PLUGIN}
-    dbpluginparameter=${TS3SERVER_DB_PLUGINPARAMETER}
-    dbsqlpath=${TS3SERVER_DB_SQLPATH}
-    dbsqlcreatepath=${TS3SERVER_DB_SQLCREATEPATH}
-    dbconnections=${TS3SERVER_DB_CONNECTIONS}
-    dbclientkeepdays=${TS3SERVER_DB_CLIENTKEEPDAYS}
-    logpath=${TS3SERVER_LOG_PATH}
-    logquerycommands=${TS3SERVER_LOG_QUERY_COMMANDS}
-    logappend=${TS3SERVER_LOG_APPEND}
+licensepath=${TS3SERVER_LICENSEPATH}
+query_ip_whitelist=${TS3SERVER_IP_WHITELIST}
+query_ip_blacklist=${TS3SERVER_IP_BLACKLIST}
+dbplugin=${TS3SERVER_DB_PLUGIN}
+dbpluginparameter=${TS3SERVER_DB_PLUGINPARAMETER}
+dbsqlpath=${TS3SERVER_DB_SQLPATH}
+dbsqlcreatepath=${TS3SERVER_DB_SQLCREATEPATH}
+dbconnections=${TS3SERVER_DB_CONNECTIONS}
+dbclientkeepdays=${TS3SERVER_DB_CLIENTKEEPDAYS}
+logpath=${TS3SERVER_LOG_PATH}
+logquerycommands=${TS3SERVER_LOG_QUERY_COMMANDS}
+logappend=${TS3SERVER_LOG_APPEND}
 EOF
 cat <<- EOF >/app/ts3db.ini
-    [config]
-    host='${TS3SERVER_DB_HOST}'
-    port='${TS3SERVER_DB_PORT}'
-    username='${TS3SERVER_DB_USER}'
-    password='${TS3SERVER_DB_PASSWORD}'
-    database='${TS3SERVER_DB_NAME}'
-    socket=${TS3SERVER_DB_SOCKET}
-    wait_until_ready='${TS3SERVER_DB_WAITUNTILREADY}'
+[config]
+host='${TS3SERVER_DB_HOST}'
+port='${TS3SERVER_DB_PORT}'
+username='${TS3SERVER_DB_USER}'
+password='${TS3SERVER_DB_PASSWORD}'
+database='${TS3SERVER_DB_NAME}'
+socket=${TS3SERVER_DB_SOCKET}
+wait_until_ready='${TS3SERVER_DB_WAITUNTILREADY}'
 EOF
 
 # prepare execution
-set -- "$@" inifile=/var/run/ts3server/ts3server.ini
+set -- "$@" inifile=/app/ts3server.ini
 if [ -n "${TS3SERVER_QUERY_PASSWORD}" ]; then
     set -- "$@" serveradmin_password=${TS3SERVER_QUERY_PASSWORD}
 fi
