@@ -82,16 +82,16 @@ fi
 # dbpluginparameter=ts3db_mariadb.ini
 # dbsqlpath=sql/
 # dbsqlcreatepath=create_mariadb/
-# query_port=10101
+# query_port=10011
 # filetransfer_ip=0.0.0.0 # do also if port only is set!
-# filetransfer_port=30301
+# filetransfer_port=30033
 # TODO: ts3db_mariadb.ini
 # [config]
 # host=database
 # port=3306
 # username=ts3server
-# password=Start123
-# database=ts3server01
+# password=mypasswort
+# database=databasename
 # socket=
 
 # execution
