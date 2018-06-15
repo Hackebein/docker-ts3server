@@ -1,22 +1,24 @@
 FROM frolvlad/alpine-glibc
 
 ARG TS3SERVER_VERSION=__TS3SERVER_VERSION__
+ARG TS3SERVER_URL=__TS3SERVER_URL__
+ARG TS3SERVER_ARCHIVE=__TS3SERVER_ARCHIVE__
+
 ENV TS3SERVER_VERSION=$TS3SERVER_VERSION
 
 RUN apk add --update \
 		bash \
 		bzip2 \
 		ca-certificates \
+		tar \
 		wget \
 	&& rm -rf /var/cache/apk/* \
-	&& mkdir -p /opt \
-	&& wget http://dl.4players.de/ts/releases/$TS3SERVER_VERSION/teamspeak3-server_linux_amd64-$TS3SERVER_VERSION.tar.bz2 \
-		-O /opt/teamspeak3-server_linux_amd64.tar.bz2 \
-	&& tar -C /opt -jxvf /opt/teamspeak3-server_linux_amd64.tar.bz2 \
-	&& mv /opt/teamspeak3-server_linux_amd64 /opt/teamspeak3-server \
+	&& mkdir -p /opt/teamspeak3-server \
+	&& wget ${TS3SERVER_URL} -O /opt/${TS3SERVER_ARCHIVE} \
+	&& tar -C /opt/teamspeak3-server --strip 1 -xvf /opt/${TS3SERVER_ARCHIVE} \
 	&& ln -s /opt/teamspeak3-server /app \
 	&& rm -rf \
-		/opt/teamspeak3-server_linux_amd64.tar.bz2 \
+		/opt/${TS3SERVER_ARCHIVE} \
 		/app/docs \
 		/app/serverquerydocs \
 		/app/tsdns \

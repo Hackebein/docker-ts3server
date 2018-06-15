@@ -1,12 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-export LD_LIBRARY_PATH=".:./redist:$LD_LIBRARY_PATH"
+cd "$(dirname "$(readlink -f "$0")")"
 
-D1=$(readlink -f "$0")
-D2=$(dirname "${D1}")
-cd "${D2}"
-
-# vercomp '3.0.0' $TS3SERVER_VERSION
+# vercomp '3.0.0' '3.1.0'
 # case $? in
 	# 0) foo='=';;
 	# 1) foo='>';;
@@ -44,32 +40,39 @@ vercompare () {
 		1) op='>';;
 		2) op='<';;
 	esac
-	
-	if [[ $op != $2 ]]; then
-		return 1
+
+	if [[ $2 = *"${op}"*  ]]; then
+		echo true
 	else
-		return 0
+		echo false
 	fi
 }
 
-# main
-vercompare $TS3SERVER_VERSION '<' '3.0.9'
-version_before_badge=$?
-if $(exit $version_before_badge); then
-	TS3SERVER_PATCH_BADGES_DISABLE='false'
+# environment
+export LD_LIBRARY_PATH=".:./redist"
+export TS3SERVER_VERSION=${TS3SERVER_VERSION:-0}
+export TS3SERVER_PATCH_ENABLE=${TS3SERVER_PATCH_ENABLE:-false}
+export TS3SERVER_PATCH_BADGES_DISABLE=${TS3SERVER_PATCH_BADGES_DISABLE:-false}
+export TS3SERVER_SUPPORT_BADGE=$(vercompare ${TS3SERVER_VERSION} '>=' '3.0.9')
+
+if [[ ${TS3SERVER_SUPPORT_BADGE} != true ]]; then
+	TS3SERVER_PATCH_BADGES_DISABLE=false
 fi
 
 # DEBUG
-env
+echo ---
+printenv | grep '^TS3SERVER_' | sort
+echo ---
 
+# main
 if [ -e ts3server.dist ]; then
 	cp -a ts3server.dist ts3server
 	rm ts3server.dist
 fi
-if [ "${TS3SERVER_PATCH_ENABLE}" = "true" ]; then
+if [[ "${TS3SERVER_PATCH_ENABLE}" == "true" ]]; then
 	cp -a ts3server ts3server.dist
 	# Patch for disable badges
-	if [ "${TS3SERVER_PATCH_BADGES_DISABLE}" = "true" ]; then
+	if [[ "${TS3SERVER_PATCH_BADGES_DISABLE}" == "true" ]]; then
 		sed -e 's/client_badges/client_BADGES/g' -i ts3server
 	fi
 fi
