@@ -6,6 +6,7 @@ ARG TS3SERVER_ARCHIVE=teamspeak3-server.tar.gz
 ARG TS3SERVER_SHA256=9606dd5c0c3677881b1aab833cb99f4f12ba08cc77ef4a97e9e282d9e10b0702
 
 ENV TS3SERVER_VERSION=$TS3SERVER_VERSION
+ENV LD_LIBRARY_PATH=.:./redist
 
 COPY ts3server_startscript.sh /tmp/ts3server_startscript.sh
 COPY query_ip_whitelist.txt /tmp/query_ip_whitelist.txt
@@ -26,9 +27,6 @@ RUN apk add --update  --no-cache \
 	&& apk del .build-dependencies \
 	&& mv /tmp/ts3server_startscript.sh /tmp/query_ip_whitelist.txt /app/ \
     && chown root:root /app/* \
-	&& mv /app/*.so /usr/local/lib \
-	&& mv /app/redist/*.so /usr/local/lib || true \
-	&& ldconfig /usr/local/lib \
 	&& touch /app/ts3server.ini /app/ts3db.ini\
     && chown 1000:1000 /app/* \
 	&& chmod ugo+x /app/ts3server_startscript.sh \
@@ -42,7 +40,7 @@ RUN apk add --update  --no-cache \
 		/app/serverquerydocs \
 		/app/tsdns \
 		/app/ts3server_minimal_runscript.sh \
-	
+
 EXPOSE 9987/udp 30033 10011
 
 ENTRYPOINT ["/app/ts3server_startscript.sh"]

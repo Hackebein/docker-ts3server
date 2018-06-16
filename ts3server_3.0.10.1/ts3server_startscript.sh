@@ -49,7 +49,6 @@ vercompare () {
 }
 
 # environment
-export LD_LIBRARY_PATH="/usr/local/lib"
 export TS3SERVER_VERSION=${TS3SERVER_VERSION:-0}
 export TS3SERVER_LICENSEPATH=${TS3SERVER_LICENSEPATH:-}
 export TS3SERVER_IP_WHITELIST=${TS3SERVER_IP_WHITELIST:-query_ip_whitelist.txt}
