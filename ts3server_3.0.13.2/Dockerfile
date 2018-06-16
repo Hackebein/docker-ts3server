@@ -36,7 +36,6 @@ RUN apk add --update  --no-cache \
 		/app/CHANGELOG \
 		/app/doc \
 		/app/docs \
-		/app/redist \
 		/app/serverquerydocs \
 		/app/tsdns \
 		/app/ts3server_minimal_runscript.sh \
