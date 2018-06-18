@@ -3,6 +3,12 @@ set -e
 
 cd "$(dirname "$(readlink -f "$0")")"
 
+status () {
+    NAME=$1
+    STATUS=$2
+    echo -e "$NAME\r\t\t\t\t  $STATUS"
+}
+
 rm -rf ts3server_*
 touch .wait
 echo -n "Prepare worker threads "
@@ -24,7 +30,7 @@ while read release; do
             sleep 1
         done
         if [[ $skip == true ]]; then
-            echo -e "ts3server_$version \t skipped"
+            status "hackebein/ts3server:$version" "skipped"
         else
             url_esc=$(echo ${url} | sed -e 's/\\/\\\\/g; s/\//\\\//g; s/&/\\\&/g')
             file=teamspeak3-server.$(echo ${url} | rev | cut -f -2 -d'.' | rev)
@@ -38,11 +44,11 @@ while read release; do
             log=$(docker build --no-cache -t hackebein/ts3server:${version} "ts3server_$version")
             status=$?
             if [[ $status == 0 ]]; then
-                echo -e "ts3server_$version \t OK"
+                status "hackebein/ts3server:$version" "OK"
             else
                 log_file="build_$version.log"
                 echo $log > $log_file
-                echo -e "ts3server_$version \t FAIL (log: $log)"
+                status "hackebein/ts3server:$version" "FAIL (log: $log)"
             fi
         fi
     ) &
