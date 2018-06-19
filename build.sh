@@ -44,6 +44,7 @@ while read release; do
             cat components/Dockerfile.part[1-9].@(generic|${arch}) > "ts3server_${version}/Dockerfile"
 
             sed -e "s/__TS3SERVER_VERSION__/${version}/g" \
+                -e "s/__TS3SERVER_ARCH__/${arch}/g" \
                 -e "s/__TS3SERVER_URL__/${url_esc}/g" \
                 -e "s/__TS3SERVER_ARCHIVE__/${file}/g" \
                 -e "s/__TS3SERVER_SHA256__/${sha256}/g" \

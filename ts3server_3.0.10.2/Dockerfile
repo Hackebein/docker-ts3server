@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-glibc
 ARG TS3SERVER_VERSION=3.0.10.2
-ARG TS3SERVER_ARCH=__TS3SERVER_ARCH__
+ARG TS3SERVER_ARCH=amd64
 ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.10.2/teamspeak3-server_linux-amd64-3.0.10.2.tar.gz
 ARG TS3SERVER_ARCHIVE=teamspeak3-server.tar.gz
 ARG TS3SERVER_SHA256=c65bcc5f28da74a5a5a1545b92e2295ab5e6bdfd40940a91241d2c094777fa69

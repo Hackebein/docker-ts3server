@@ -1,6 +1,6 @@
 FROM alpine
 ARG TS3SERVER_VERSION=3.1.1-Beta-1
-ARG TS3SERVER_ARCH=__TS3SERVER_ARCH__
+ARG TS3SERVER_ARCH=alpine
 ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.1-Beta-1/teamspeak3-server_linux_alpine-3.1.1.tar.bz2
 ARG TS3SERVER_ARCHIVE=teamspeak3-server.tar.bz2
 ARG TS3SERVER_SHA256=6ca9c88d577825128165cc4b8dd3827908a25044b5cafda0a33168d8e1972b1d
