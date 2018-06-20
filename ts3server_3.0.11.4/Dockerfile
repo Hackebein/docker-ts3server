@@ -17,7 +17,6 @@ RUN apk add --update  --no-cache \
 		ca-certificates \
 		${ADDITIONAL_DEPENDENCIES} \
 	&& apk add --update --no-cache --virtual .build-dependencies \
-		bzip2 \
 		tar \
 		wget \
 	&& cd /tmp \
