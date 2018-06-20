@@ -1,5 +1,7 @@
 FROM frolvlad/alpine-glibc
 ARG ADDITIONAL_DEPENDENCIES=
+MAINTAINER Lars Olzem <hackebein@gmail.com>
+
 ARG TS3SERVER_VERSION=3.0.11.4
 ARG TS3SERVER_ARCH=amd64
 ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
@@ -29,10 +31,11 @@ RUN apk add --update  --no-cache \
 	&& mv /tmp/overload/* /app/ \
 	&& touch /app/ts3server.ini /app/ts3db.ini\
 	&& chown 1000:1000 /app/* \
-	&& chmod ugo+x /app/ts3server_startscript.sh \
+	&& chmod ug+x /app/ts3server_startscript.sh \
 	&& rm -rf \
 		/var/cache/apk/* \
 		/tmp/${TS3SERVER_ARCHIVE} \
+		/tmp/overload \
 		/app/CHANGELOG \
 		/app/doc \
 		/app/docs \

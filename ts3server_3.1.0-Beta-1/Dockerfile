@@ -1,5 +1,7 @@
 FROM alpine
 ARG ADDITIONAL_DEPENDENCIES=libstdc++
+MAINTAINER Lars Olzem <hackebein@gmail.com>
+
 ARG TS3SERVER_VERSION=3.1.0-Beta-1
 ARG TS3SERVER_ARCH=alpine
 ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-1/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
@@ -29,10 +31,11 @@ RUN apk add --update  --no-cache \
 	&& mv /tmp/overload/* /app/ \
 	&& touch /app/ts3server.ini /app/ts3db.ini\
 	&& chown 1000:1000 /app/* \
-	&& chmod ugo+x /app/ts3server_startscript.sh \
+	&& chmod ug+x /app/ts3server_startscript.sh \
 	&& rm -rf \
 		/var/cache/apk/* \
 		/tmp/${TS3SERVER_ARCHIVE} \
+		/tmp/overload \
 		/app/CHANGELOG \
 		/app/doc \
 		/app/docs \

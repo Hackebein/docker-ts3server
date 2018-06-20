@@ -1,3 +1,5 @@
+MAINTAINER Lars Olzem <hackebein@gmail.com>
+
 ARG TS3SERVER_VERSION=__TS3SERVER_VERSION__
 ARG TS3SERVER_ARCH=__TS3SERVER_ARCH__
 ARG TS3SERVER_URL=__TS3SERVER_URL__
@@ -27,10 +29,11 @@ RUN apk add --update  --no-cache \
 	&& mv /tmp/overload/* /app/ \
 	&& touch /app/ts3server.ini /app/ts3db.ini\
 	&& chown 1000:1000 /app/* \
-	&& chmod ugo+x /app/ts3server_startscript.sh \
+	&& chmod ug+x /app/ts3server_startscript.sh \
 	&& rm -rf \
 		/var/cache/apk/* \
 		/tmp/${TS3SERVER_ARCHIVE} \
+		/tmp/overload \
 		/app/CHANGELOG \
 		/app/doc \
 		/app/docs \
