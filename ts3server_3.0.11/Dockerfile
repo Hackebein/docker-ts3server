@@ -1,4 +1,5 @@
 FROM frolvlad/alpine-glibc
+ARG ADDITIONAL_DEPENDENCIES=
 ARG TS3SERVER_VERSION=3.0.11
 ARG TS3SERVER_ARCH=amd64
 ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11/teamspeak3-server_linux-amd64-3.0.11.tar.gz
@@ -14,6 +15,7 @@ COPY overload /tmp/overload
 RUN apk add --update  --no-cache \
 		bash \
 		ca-certificates \
+		${ADDITIONAL_DEPENDENCIES} \
 	&& apk add --update --no-cache --virtual .build-dependencies \
 		bzip2 \
 		tar \

@@ -1,4 +1,5 @@
 FROM alpine
+ARG ADDITIONAL_DEPENDENCIES=libstdc++
 ARG TS3SERVER_VERSION=3.1.0-Beta-2
 ARG TS3SERVER_ARCH=alpine
 ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-2/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
@@ -14,6 +15,7 @@ COPY overload /tmp/overload
 RUN apk add --update  --no-cache \
 		bash \
 		ca-certificates \
+		${ADDITIONAL_DEPENDENCIES} \
 	&& apk add --update --no-cache --virtual .build-dependencies \
 		bzip2 \
 		tar \
