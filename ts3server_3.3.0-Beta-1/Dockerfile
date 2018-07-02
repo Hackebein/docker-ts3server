@@ -1,12 +1,12 @@
-FROM frolvlad/alpine-glibc
-ARG ADDITIONAL_DEPENDENCIES=
+FROM alpine
+ARG ADDITIONAL_DEPENDENCIES=libstdc++
 MAINTAINER Lars Olzem <hackebein@gmail.com>
 
-ARG TS3SERVER_VERSION=3.0.13.2
-ARG TS3SERVER_ARCH=amd64
-ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.2/teamspeak3-server_linux_amd64-3.0.13.2.tar.bz2
+ARG TS3SERVER_VERSION=3.3.0-Beta-1
+ARG TS3SERVER_ARCH=alpine
+ARG TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-1/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
 ARG TS3SERVER_ARCHIVE=teamspeak3-server.tar.bz2
-ARG TS3SERVER_SHA256=f7dd49a38126fb6a4c0e7818575c7d898556330cafe5fc59b20d9f10744f6799
+ARG TS3SERVER_SHA256=25af7f8ba48199fa075102727c763a510b69b4d098afb77b0d6da1c1c6103fd1
 
 ENV TS3SERVER_VERSION=$TS3SERVER_VERSION
 ENV TS3SERVER_ARCH=$TS3SERVER_ARCH
