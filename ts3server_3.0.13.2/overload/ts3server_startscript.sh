@@ -9,28 +9,28 @@ cd "$(dirname "$(readlink -f "$0")")"
 	# 2) foo='<';;
 # esac
 vercomp () {
-    if [[ $1 == $2 ]]; then
-        return 0
-    fi
-    local IFS=.
-    local i ver1=($1) ver2=($2)
-    # fill empty fields in ver1 with zeros
-    for ((i=${#ver1[@]}; i<${#ver2[@]}; i++)); do
-        ver1[i]=0
-    done
-    for ((i=0; i<${#ver1[@]}; i++)); do
-        if [[ -z ${ver2[i]} ]]; then
-            # fill empty fields in ver2 with zeros
-            ver2[i]=0
-        fi
-        if ((10#${ver1[i]} > 10#${ver2[i]})); then
-            return 1
-        fi
-        if ((10#${ver1[i]} < 10#${ver2[i]})); then
-            return 2
-        fi
-    done
-    return 0
+	if [[ $1 == $2 ]]; then
+		return 0
+	fi
+	local IFS=.
+	local i ver1=($1) ver2=($2)
+	# fill empty fields in ver1 with zeros
+	for ((i=${#ver1[@]}; i<${#ver2[@]}; i++)); do
+		ver1[i]=0
+	done
+	for ((i=0; i<${#ver1[@]}; i++)); do
+		if [[ -z ${ver2[i]} ]]; then
+			# fill empty fields in ver2 with zeros
+			ver2[i]=0
+		fi
+		if ((10#${ver1[i]} > 10#${ver2[i]})); then
+			return 1
+		fi
+		if ((10#${ver1[i]} < 10#${ver2[i]})); then
+			return 2
+		fi
+	done
+	return 0
 }
 
 vercompare () {
@@ -49,11 +49,26 @@ vercompare () {
 }
 
 trailingslash () {
-  if [[ $1 == *"/" ]]; then
-    echo $1
-  else
-    echo $1/
-  fi
+	if [[ $1 == *"/" ]]; then
+		echo $1
+	else
+		echo $1/
+	fi
+}
+
+_sig () {
+	set -x
+	export SIG=$1
+	SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
+	echo "Caught ${SIG} signal!"
+	if [[ -x "./ts3server_before_${SIG}.sh" ]]; then
+		./ts3server_before_${SIG}.sh
+	fi
+	kill -s ${SIG} ${PID}
+	if [[ -x "./ts3server_after_${SIG}.sh" ]]; then
+		./ts3server_after_${SIG}.sh
+	fi
+	wait "${PID}"
 }
 
 # environment
@@ -145,7 +160,7 @@ export TS3SERVER_VOICE_IP=${TS3SERVER_VOICE_IP:-0.0.0.0}
 export _TS3SERVER_LICENSE_ACCEPTED=0
 export TS3SERVER_VERSION=${TS3SERVER_VERSION:-0}
 export TS3SERVER_SUPPORT_BADGE=$(vercompare ${TS3SERVER_VERSION} '>=' '3.0.9')
-TS3SERVER_DB_SQL_CREATE_PATH=$(trailingslash "${TS3SERVER_DB_SQL_CREATE_PATH}")
+TS3SERVER_DB_SQL_CREATE_PATH=$(realpath -s "${TS3SERVER_DB_SQL_CREATE_PATH}/")
 TS3SERVER_DB_SQL_PATH=$(trailingslash "${TS3SERVER_DB_SQL_PATH}")
 TS3SERVER_LOG_PATH=$(trailingslash "${TS3SERVER_LOG_PATH}")
 TS3SERVER_QUERY_DOCS_PATH=$(trailingslash "${TS3SERVER_QUERY_DOCS_PATH}")
@@ -162,9 +177,9 @@ fi
 
 # environment printing
 if [[ "${TS3SERVER_PRINT_ENV}" == "true" ]]; then
-  echo ---
-  printenv | grep '^TS3SERVER_' | grep -v 'PASSWORD' | sort
-  echo ---
+	echo ---
+	printenv | grep '^TS3SERVER_' | grep -v 'PASSWORD' | sort
+	echo ---
 fi
 
 # patches
@@ -224,8 +239,21 @@ EOF
 # prepare execution
 set -- "$@" inifile=/app/ts3server.ini
 if [ -n "${TS3SERVER_QUERY_PASSWORD}" ]; then
-    set -- "$@" serveradmin_password=${TS3SERVER_QUERY_PASSWORD}
+	set -- "$@" serveradmin_password=${TS3SERVER_QUERY_PASSWORD}
 fi
 
+# register traps
+IFS=' ' read -r -a singals <<< $(kill -l | sed -e 's/[0-9]\+)//g' | tr -d '\t\r\n')
+for SIG in "${singals[@]}"; do
+	SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
+	if [[ -x "./ts3server_before_${SIG}.sh" ]] || [[ -x "./ts3server_after_${SIG}.sh" ]]; then
+		echo "Register ${SIG} event"
+		eval "trap '_sig ${SIG}' ${SIG_SHORT}"
+	fi
+done
+
 # execution
-exec ./ts3server "$@"
+./ts3server "$@" &
+export PID=$!
+
+wait "${PID}"
