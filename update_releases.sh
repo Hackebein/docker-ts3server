@@ -3,7 +3,7 @@ set -e
 
 cd "$(dirname "$(readlink -f "$0")")"
 
-rm -rf ts3server_* releases.new
+rm -rf releases.new
 while read release; do
     version=$(echo ${release} | cut -f1 -d'|' | sed 's/#//g')
     arch=$(echo ${release} | cut -f2 -d'|')
