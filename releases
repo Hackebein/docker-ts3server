@@ -47,3 +47,6 @@
 3.2.0|alpine|f7eff1e4d81a31631a8f27ac1ea8035a036b92853bfaabd4c12d979e3ff0ed76|http://dl.4players.de/ts/releases/3.2.0/teamspeak3-server_linux_alpine-3.2.0.tar.bz2
 3.3.0-Beta-1|alpine|25af7f8ba48199fa075102727c763a510b69b4d098afb77b0d6da1c1c6103fd1|http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-1/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
 3.3.0-Beta-2|alpine|d8b54e26863f57ea7122db605359a0711e3479f260fc441bd0f4ff8de60aa5a3|http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-2/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+3.3.0-Beta-3|alpine|43d3fab04ed85579d5f6f87a61bb7adc54edc4cdfbe7dbdd58265cee3515d698|http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-3/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+3.3.0|alpine|49b4e05bc7caccde480c6be4592238cc19ed5bd4320c55eac31cabdcd9e27b5c|http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+3.3.1-steadyclock|alpine|051459f713fa8d4fcd3d22376d31d941bacb2bfc5d3554dce4d7ef160191f806|http://dl.4players.de/ts/releases/pre_releases/server/3.3.1-steadyclock/teamspeak3-server_linux_alpine-3.3.1-steadyclock.tar.bz2

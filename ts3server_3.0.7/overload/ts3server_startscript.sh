@@ -57,7 +57,6 @@ trailingslash () {
 }
 
 _sig () {
-	set -x
 	export SIG=$1
 	SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
 	echo "Caught ${SIG} signal!"
@@ -246,10 +245,8 @@ fi
 IFS=' ' read -r -a singals <<< $(kill -l | sed -e 's/[0-9]\+)//g' | tr -d '\t\r\n')
 for SIG in "${singals[@]}"; do
 	SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
-	if [[ -x "./ts3server_before_${SIG}.sh" ]] || [[ -x "./ts3server_after_${SIG}.sh" ]]; then
-		echo "Register ${SIG} event"
-		eval "trap '_sig ${SIG}' ${SIG_SHORT}"
-	fi
+	echo "Register ${SIG} event"
+	eval "trap '_sig ${SIG}' ${SIG_SHORT}"
 done
 
 # execution

@@ -14,7 +14,9 @@ COPY overload /tmp/overload
 
 RUN apk add --update  --no-cache \
 		bash \
+		busybox-extras \
 		ca-certificates \
+		expect \
 		${ADDITIONAL_DEPENDENCIES} \
 	&& apk add --update --no-cache --virtual .build-dependencies \
 		tar \
