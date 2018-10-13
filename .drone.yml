@@ -2,7 +2,7 @@ pipeline:
   build_builder:
     image: plugins/docker
     group: base
-    repo: hackebein/docker-ts3server
+    repo: hackebein/ts3server
     dockerfile: Dockerfile.builder
     tags:
       - builder
@@ -26,7 +26,7 @@ pipeline:
   publish:
     image: plugins/docker
     group: versions
-    repo: hackebein/docker-ts3server
+    repo: hackebein/ts3server
     dockerfile: Dockerfile
     build_args:
       - TS3SERVER_ARCH=${TS3SERVER_ARCH}
