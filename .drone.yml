@@ -30,9 +30,9 @@ pipeline:
     dockerfile: Dockerfile
     build_args:
       - TS3SERVER_ARCH=${TS3SERVER_ARCH}
-      - TS3SERVER_URL=${TS3SERVER_ARCH}
-      - TS3SERVER_ARCHIVE=${TS3SERVER_ARCH}
-      - TS3SERVER_SHA256=${TS3SERVER_ARCH}
+      - TS3SERVER_URL=${TS3SERVER_URL}
+      - TS3SERVER_ARCHIVE=${TS3SERVER_ARCHIVE}
+      - TS3SERVER_SHA256=${TS3SERVER_SHA256}
     tags:
       - ${TS3SERVER_VERSION}_test
     #auto_tag: true
