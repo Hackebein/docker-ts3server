@@ -20,3 +20,8 @@ ARG GID=1000
 COPY --from=builder /app /app
 RUN chown ${UID}:${GID} /app /app/*
 USER ${UID}:${GID}
+VOLUME \
+    /app/files \
+    /app/ts3server.sqlitedb \
+    /app/ts3server.sqlitedb-shm \
+    /app/ts3server.sqlitedb-wal
