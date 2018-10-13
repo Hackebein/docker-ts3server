@@ -41,7 +41,7 @@ pipeline:
       event: push
 
 matrix:
-  versions:
+  include:
     - TS3SERVER_ARCH: linux_alpine
       TS3SERVER_VERSION: 3.4.0
       TS3SERVER_URL: http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
