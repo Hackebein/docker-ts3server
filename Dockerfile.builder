@@ -1,7 +1,5 @@
 FROM alpine:latest
-
 COPY overload /app
-
 RUN apk add --update --no-cache \
 		tar \
 		wget \
