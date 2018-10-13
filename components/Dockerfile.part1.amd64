@@ -1,2 +1,0 @@
-FROM frolvlad/alpine-glibc
-ARG ADDITIONAL_DEPENDENCIES=

@@ -1,0 +1,47 @@
+pipeline:
+  build_builder:
+    image: plugins/docker
+    group: base
+    repo: hackebein/docker-ts3server
+    dockerfile: Dockerfile.builder
+    tags: [ builder ]
+    when:
+      branch: master
+      event: push
+
+  build_base:
+    image: plugins/docker
+    group: base
+    repo: hackebein/docker-ts3server
+    dockerfile: Dockerfile.${archs}
+    tags: [ ${arch} ]
+    when:
+      branch: master
+      event: push
+
+  publish:
+    image: plugins/docker
+    group: versions
+    repo: hackebein/docker-ts3server
+    dockerfile: Dockerfile
+    build_args:
+      - TS3SERVER_ARCH=${TS3SERVER_ARCH}
+      - TS3SERVER_URL=${TS3SERVER_ARCH}
+      - TS3SERVER_ARCHIVE=${TS3SERVER_ARCH}
+      - TS3SERVER_SHA256=${TS3SERVER_ARCH}
+    tags: [ ${TS3SERVER_VERSION} ]
+    auto_tag: true
+    secrets: [ docker_username, docker_password ]
+    when:
+      branch: master
+      event: push
+
+matrix:
+  arch:
+    - linux_alpine
+  version:
+    - TS3SERVER_ARCH: linux_alpine
+      TS3SERVER_VERSION: 3.4.0
+      TS3SERVER_URL: http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+      TS3SERVER_ARCHIVE: teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+      TS3SERVER_SHA256: e356d0013d7e894fd1ed91725f09525e39f077901f84b50ecad0f1e5ab4ad527

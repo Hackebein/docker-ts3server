@@ -1,2 +1,0 @@
-FROM alpine
-ARG ADDITIONAL_DEPENDENCIES=libstdc++
