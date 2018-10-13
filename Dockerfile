@@ -9,7 +9,7 @@ ARG TS3SERVER_SHA256
 RUN wget "${TS3SERVER_URL}" -O "/tmp/${TS3SERVER_ARCHIVE}" \
  && echo "${TS3SERVER_SHA256} */tmp/${TS3SERVER_ARCHIVE}" | sha256sum -c - \
  && tar -C /app --strip 1 -xvf "/tmp/${TS3SERVER_ARCHIVE}" \
- && chown 1000:1000 /app/* \
+ && chown 1000:1000 /app /app/* \
  && rm -rf \
     	/app/CHANGELOG \
 		/app/doc \
