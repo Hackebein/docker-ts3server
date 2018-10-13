@@ -4,7 +4,8 @@ pipeline:
     group: base
     repo: hackebein/docker-ts3server
     dockerfile: Dockerfile.builder
-    tags: [ builder ]
+    tags:
+      - builder
     when:
       branch: master
       event: push
@@ -13,8 +14,9 @@ pipeline:
     image: plugins/docker
     group: base
     repo: hackebein/docker-ts3server
-    dockerfile: Dockerfile.${archs}
-    tags: [ ${arch} ]
+    dockerfile: Dockerfile.${arch}
+    tags:
+      - ${arch}
     when:
       branch: master
       event: push
@@ -29,9 +31,11 @@ pipeline:
       - TS3SERVER_URL=${TS3SERVER_ARCH}
       - TS3SERVER_ARCHIVE=${TS3SERVER_ARCH}
       - TS3SERVER_SHA256=${TS3SERVER_ARCH}
-    tags: [ ${TS3SERVER_VERSION} ]
+    tags:
+      - ${TS3SERVER_VERSION}
     auto_tag: true
-    secrets: [ docker_username, docker_password ]
+    auto_tag_suffix: -${TS3SERVER_ARCH}
+    #secrets: [ docker_username, docker_password ]
     when:
       branch: master
       event: push
