@@ -6,6 +6,7 @@ pipeline:
     dockerfile: Dockerfile.builder
     tags:
       - builder
+    secrets: [ docker_username, docker_password ]
     when:
       branch: master
       event: push
@@ -17,6 +18,7 @@ pipeline:
     dockerfile: Dockerfile.${TS3SERVER_ARCH}
     tags:
       - ${TS3SERVER_ARCH}
+    secrets: [ docker_username, docker_password ]
     when:
       branch: master
       event: push
