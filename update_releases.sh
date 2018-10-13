@@ -9,6 +9,10 @@ while read release; do
     arch=$(echo ${release} | cut -f2 -d'|')
     sha256old=$(echo ${release} | cut -f3 -d'|')
     url=$(echo ${release} | cut -f4 -d'|')
-    echo "${version}|${arch}|$(wget "$url" -qO - | sha256sum | cut -f1 -d' ')|${url}" >> releases.new
+    if [[ "$sha256old" == "" ]]; then
+        echo "${version}|${arch}|$(wget "$url" -qO - | sha256sum | cut -f1 -d' ')|${url}" >> releases.new
+    else
+        echo "${version}|${arch}|${sha256old}|${url}" >> releases.new
+    fi
 done < releases
 mv releases.new releases
