@@ -12,9 +12,9 @@ pipeline:
   build_base:
     image: plugins/docker
     group: base
-    dockerfile: Dockerfile.${ARCH}
+    dockerfile: Dockerfile.${TS3SERVER_ARCH}
     tags:
-      - ${ARCH}
+      - ${TS3SERVER_ARCH}
     when:
       branch: master
       event: push
@@ -39,8 +39,6 @@ pipeline:
       event: push
 
 matrix:
-  archs:
-    - ARCH: linux_alpine
   versions:
     - TS3SERVER_ARCH: linux_alpine
       TS3SERVER_VERSION: 3.4.0
