@@ -14,9 +14,9 @@ pipeline:
     image: plugins/docker
     group: base
     repo: hackebein/docker-ts3server
-    dockerfile: Dockerfile.${arch}
+    dockerfile: Dockerfile.linux_alpine
     tags:
-      - ${arch}
+      - linux_alpine
     when:
       branch: master
       event: push
@@ -41,9 +41,7 @@ pipeline:
       event: push
 
 matrix:
-  arch:
-    - linux_alpine
-  version:
+  versions:
     - TS3SERVER_ARCH: linux_alpine
       TS3SERVER_VERSION: 3.4.0
       TS3SERVER_URL: http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
