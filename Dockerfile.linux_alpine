@@ -6,6 +6,11 @@ RUN apk add --update --no-cache \
 		libstdc++ \
 		busybox-extras \
 		expect
+VOLUME \
+    /app/files \
+    /app/ts3server.sqlitedb \
+    /app/ts3server.sqlitedb-shm \
+    /app/ts3server.sqlitedb-wal
 WORKDIR /app
 EXPOSE 9987/udp 30033 10011
 ENTRYPOINT ["/app/ts3server_startscript.sh"]

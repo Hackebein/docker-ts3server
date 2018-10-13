@@ -15,13 +15,4 @@ RUN wget "${TS3SERVER_URL}" -O "/tmp/${TS3SERVER_ARCHIVE}" \
 		/app/ts3server_minimal_runscript.sh
 
 FROM hackebein/ts3server:${TS3SERVER_ARCH}
-ARG UID=1000
-ARG GID=1000
 COPY --from=builder /app /app
-RUN chown ${UID}:${GID} /app /app/*
-USER ${UID}:${GID}
-VOLUME \
-    /app/files \
-    /app/ts3server.sqlitedb \
-    /app/ts3server.sqlitedb-shm \
-    /app/ts3server.sqlitedb-wal
