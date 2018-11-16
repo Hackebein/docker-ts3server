@@ -1,2 +1,6 @@
 ### JetBrains
 .idea/
+
+### build progress
+download.list
+download.list.tmp
