@@ -21,7 +21,7 @@ template_publish() {
 # ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION} (${TS3SERVER_ARCH})
   ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}:
     image: plugins/docker
-    # group: versions
+    group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.${TS3SERVER_ARCH}
     build_args:
