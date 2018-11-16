@@ -3,7 +3,7 @@ pipeline:
 # 3.0.0 (linux_amd64)
   3.0.0-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -18,7 +18,7 @@ pipeline:
 # 3.0.1 (linux_amd64)
   3.0.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -33,7 +33,7 @@ pipeline:
 # 3.0.10.1 (linux_amd64)
   3.0.10.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -48,7 +48,7 @@ pipeline:
 # 3.0.10.2 (linux_amd64)
   3.0.10.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -63,7 +63,7 @@ pipeline:
 # 3.0.10.3 (linux_amd64)
   3.0.10.3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -78,7 +78,7 @@ pipeline:
 # 3.0.10 (linux_amd64)
   3.0.10-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -93,7 +93,7 @@ pipeline:
 # 3.0.11.1 (linux_amd64)
   3.0.11.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -108,7 +108,7 @@ pipeline:
 # 3.0.11.2 (linux_amd64)
   3.0.11.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -123,7 +123,7 @@ pipeline:
 # 3.0.11.3 (linux_amd64)
   3.0.11.3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -138,7 +138,7 @@ pipeline:
 # 3.0.11.4 (linux_amd64)
   3.0.11.4-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -153,7 +153,7 @@ pipeline:
 # 3.0.11 (linux_amd64)
   3.0.11-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -168,7 +168,7 @@ pipeline:
 # 3.0.12.1 (linux_amd64)
   3.0.12.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -183,7 +183,7 @@ pipeline:
 # 3.0.12.2 (linux_amd64)
   3.0.12.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -198,7 +198,7 @@ pipeline:
 # 3.0.12.3 (linux_amd64)
   3.0.12.3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -213,7 +213,7 @@ pipeline:
 # 3.0.12.4 (linux_amd64)
   3.0.12.4-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -228,7 +228,7 @@ pipeline:
 # 3.0.12 (linux_amd64)
   3.0.12-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -243,7 +243,7 @@ pipeline:
 # 3.0.13.1 (linux_amd64)
   3.0.13.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -258,7 +258,7 @@ pipeline:
 # 3.0.13.2 (linux_amd64)
   3.0.13.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -273,7 +273,7 @@ pipeline:
 # 3.0.13.3 (linux_amd64)
   3.0.13.3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -288,7 +288,7 @@ pipeline:
 # 3.0.13.4 (linux_amd64)
   3.0.13.4-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -303,7 +303,7 @@ pipeline:
 # 3.0.13.5 (linux_amd64)
   3.0.13.5-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -318,7 +318,7 @@ pipeline:
 # 3.0.13.6 (linux_amd64)
   3.0.13.6-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -333,7 +333,7 @@ pipeline:
 # 3.0.13.7 (linux_amd64)
   3.0.13.7-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -348,7 +348,7 @@ pipeline:
 # 3.0.13.8 (linux_amd64)
   3.0.13.8-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -363,7 +363,7 @@ pipeline:
 # 3.0.13 (linux_amd64)
   3.0.13-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -378,7 +378,7 @@ pipeline:
 # 3.0.2 (linux_amd64)
   3.0.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -393,7 +393,7 @@ pipeline:
 # 3.0.3 (linux_amd64)
   3.0.3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -408,7 +408,7 @@ pipeline:
 # 3.0.5 (linux_amd64)
   3.0.5-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -423,7 +423,7 @@ pipeline:
 # 3.0.6.1 (linux_amd64)
   3.0.6.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -438,7 +438,7 @@ pipeline:
 # 3.0.6 (linux_amd64)
   3.0.6-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -453,7 +453,7 @@ pipeline:
 # 3.0.7.1 (linux_amd64)
   3.0.7.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -468,7 +468,7 @@ pipeline:
 # 3.0.7.2 (linux_amd64)
   3.0.7.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -483,7 +483,7 @@ pipeline:
 # 3.0.7 (linux_amd64)
   3.0.7-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -498,7 +498,7 @@ pipeline:
 # 3.0.8 (linux_amd64)
   3.0.8-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -513,7 +513,7 @@ pipeline:
 # 3.0.9 (linux_amd64)
   3.0.9-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -528,7 +528,7 @@ pipeline:
 # 3.1.0 (linux_alpine)
   3.1.0-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -543,7 +543,7 @@ pipeline:
 # 3.1.0 (linux_amd64)
   3.1.0-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -558,7 +558,7 @@ pipeline:
 # 3.1.1 (linux_alpine)
   3.1.1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -573,7 +573,7 @@ pipeline:
 # 3.1.1 (linux_amd64)
   3.1.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -588,7 +588,7 @@ pipeline:
 # 3.1.2 (linux_alpine)
   3.1.2-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -603,7 +603,7 @@ pipeline:
 # 3.1.2 (linux_amd64)
   3.1.2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -618,7 +618,7 @@ pipeline:
 # 3.1.3 (linux_alpine)
   3.1.3-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -633,7 +633,7 @@ pipeline:
 # 3.1.3 (linux_amd64)
   3.1.3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -648,7 +648,7 @@ pipeline:
 # 3.2.0 (linux_alpine)
   3.2.0-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -663,7 +663,7 @@ pipeline:
 # 3.2.0 (linux_amd64)
   3.2.0-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -678,7 +678,7 @@ pipeline:
 # 3.3.0 (linux_alpine)
   3.3.0-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -693,7 +693,7 @@ pipeline:
 # 3.3.0 (linux_amd64)
   3.3.0-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -708,7 +708,7 @@ pipeline:
 # 3.3.1 (linux_alpine)
   3.3.1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -723,7 +723,7 @@ pipeline:
 # 3.3.1 (linux_amd64)
   3.3.1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -738,7 +738,7 @@ pipeline:
 # 3.4.0 (linux_alpine)
   3.4.0-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -753,7 +753,7 @@ pipeline:
 # 3.4.0 (linux_amd64)
   3.4.0-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -768,7 +768,7 @@ pipeline:
 # 3.5.0 (linux_alpine)
   3.5.0-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -783,7 +783,7 @@ pipeline:
 # 3.5.0 (linux_amd64)
   3.5.0-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -798,7 +798,7 @@ pipeline:
 # 3.1.0-beta1 (linux_alpine)
   3.1.0-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -813,7 +813,7 @@ pipeline:
 # 3.1.0-beta1 (linux_amd64)
   3.1.0-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -828,7 +828,7 @@ pipeline:
 # 3.1.0-beta2 (linux_alpine)
   3.1.0-beta2-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -843,7 +843,7 @@ pipeline:
 # 3.1.0-beta2 (linux_amd64)
   3.1.0-beta2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -858,7 +858,7 @@ pipeline:
 # 3.1.0-beta3 (linux_alpine)
   3.1.0-beta3-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -873,7 +873,7 @@ pipeline:
 # 3.1.0-beta3 (linux_amd64)
   3.1.0-beta3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -888,7 +888,7 @@ pipeline:
 # 3.1.1-beta1 (linux_alpine)
   3.1.1-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -903,7 +903,7 @@ pipeline:
 # 3.1.1-beta1 (linux_amd64)
   3.1.1-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -918,7 +918,7 @@ pipeline:
 # 3.1.2-beta1 (linux_alpine)
   3.1.2-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -933,7 +933,7 @@ pipeline:
 # 3.1.2-beta1 (linux_amd64)
   3.1.2-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -948,7 +948,7 @@ pipeline:
 # 3.1.3-beta1 (linux_alpine)
   3.1.3-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -963,7 +963,7 @@ pipeline:
 # 3.1.3-beta1 (linux_amd64)
   3.1.3-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -978,7 +978,7 @@ pipeline:
 # 3.2.0-beta1 (linux_alpine)
   3.2.0-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -993,7 +993,7 @@ pipeline:
 # 3.2.0-beta1 (linux_amd64)
   3.2.0-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1008,7 +1008,7 @@ pipeline:
 # 3.3.0-beta1 (linux_alpine)
   3.3.0-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1023,7 +1023,7 @@ pipeline:
 # 3.3.0-beta1 (linux_amd64)
   3.3.0-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1038,7 +1038,7 @@ pipeline:
 # 3.3.0-beta2 (linux_alpine)
   3.3.0-beta2-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1053,7 +1053,7 @@ pipeline:
 # 3.3.0-beta2 (linux_amd64)
   3.3.0-beta2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1068,7 +1068,7 @@ pipeline:
 # 3.3.0-beta3 (linux_alpine)
   3.3.0-beta3-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1083,7 +1083,7 @@ pipeline:
 # 3.3.0-beta3 (linux_amd64)
   3.3.0-beta3-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1098,7 +1098,7 @@ pipeline:
 # 3.3.1-steadyclock (linux_alpine)
   3.3.1-steadyclock-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1113,7 +1113,7 @@ pipeline:
 # 3.3.1-steadyclock (linux_amd64)
   3.3.1-steadyclock-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1128,7 +1128,7 @@ pipeline:
 # 3.4.0-beta1 (linux_alpine)
   3.4.0-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1143,7 +1143,7 @@ pipeline:
 # 3.4.0-beta1 (linux_amd64)
   3.4.0-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1158,7 +1158,7 @@ pipeline:
 # 3.5.0-beta1 (linux_alpine)
   3.5.0-beta1-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1173,7 +1173,7 @@ pipeline:
 # 3.5.0-beta1 (linux_amd64)
   3.5.0-beta1-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:
@@ -1188,7 +1188,7 @@ pipeline:
 # 3.5.0-beta2 (linux_alpine)
   3.5.0-beta2-linux_alpine:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_alpine
     build_args:
@@ -1203,7 +1203,7 @@ pipeline:
 # 3.5.0-beta2 (linux_amd64)
   3.5.0-beta2-linux_amd64:
     image: plugins/docker
-    group: versions
+    # group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.linux_amd64
     build_args:

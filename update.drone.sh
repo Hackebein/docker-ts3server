@@ -4,7 +4,6 @@
 DEFAULT_VERSION="3.5.0"
 
 template_publish() {
-	PREFIX="${1:- } "
 	if [[ "$(vercomp ${TS3SERVER_VERSION} '3.1.0')" == "<" ]]; then
 		DEFAULT_ARCH=linux_amd64
 	else
@@ -20,19 +19,19 @@ template_publish() {
 	cat <<EOF
 
 # ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION} (${TS3SERVER_ARCH})
-${PREFIX}${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}:
-${PREFIX}  image: plugins/docker
-${PREFIX}  group: versions
-${PREFIX}  repo: hackebein/ts3server
-${PREFIX}  dockerfile: Dockerfile.${TS3SERVER_ARCH}
-${PREFIX}  build_args:
-${PREFIX}    - TS3SERVER_URL=${TS3SERVER_URL}
-${PREFIX}    - TS3SERVER_ARCHIVE=${TS3SERVER_ARCHIVE}
-${PREFIX}  tags: ${TAGS}
-${PREFIX}  secrets: [ docker_username, docker_password ]
-${PREFIX}  when:
-${PREFIX}    branch: master
-${PREFIX}    event: push
+  ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}:
+    image: plugins/docker
+    # group: versions
+    repo: hackebein/ts3server
+    dockerfile: Dockerfile.${TS3SERVER_ARCH}
+    build_args:
+      - TS3SERVER_URL=${TS3SERVER_URL}
+      - TS3SERVER_ARCHIVE=${TS3SERVER_ARCHIVE}
+    tags: ${TAGS}
+    secrets: [ docker_username, docker_password ]
+    when:
+      branch: master
+      event: push
 EOF
 }
 
