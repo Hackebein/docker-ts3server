@@ -12,7 +12,7 @@ COPY build_linux /app
 RUN chmod ug+x /app/ts3server_startscript.sh \
  && rm -rf \
 		/var/lib/apt/lists/* \
-    	/app/CHANGELOG \
+		/app/CHANGELOG \
 		/app/doc \
 		/app/docs \
 		/app/tsdns \
@@ -22,8 +22,11 @@ FROM ubuntu:latest
 MAINTAINER Lars Olzem <hackebein@gmail.com>
 COPY --from=base /app /app
 ENV LD_LIBRARY_PATH=.:./redist
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 RUN apt update \
  && apt install -y \
+		ca-certificates \
 		expect \
  && apt clean \
  && rm -rf \

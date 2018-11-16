@@ -9,17 +9,21 @@ template_publish() {
 	else
 		DEFAULT_ARCH=linux_alpine
 	fi
+	# TODO: find a better way
 	TAGS="${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}"
 	if [[ "${TS3SERVER_ARCH}" == "${DEFAULT_ARCH}" ]]; then
 		TAGS="${TAGS}, ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}"
 		if [[ "${TS3SERVER_VERSION}" == "${DEFAULT_VERSION}" ]]; then
 			TAGS="${TAGS}, latest${TS3SERVER_VERSION_EXTENSION}"
 		fi
+	fi	
+	if [[ "${TS3SERVER_VERSION}" == "${DEFAULT_VERSION}" ]]; then
+		TAGS="${TAGS}, latest${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}"
 	fi
 	cat <<EOF
 
 # ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION} (${TS3SERVER_ARCH})
-  ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}:
+  build-${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}:
     image: plugins/docker
     group: versions
     repo: hackebein/ts3server
@@ -37,7 +41,7 @@ EOF
 
 download_list() {
 	if [[ ! -f "download.list" ]]; then
-		rm download.list.tmp
+		rm -f download.list.tmp
 		wget --spider --recursive --no-parent --level=inf –-delete-after --no-verbose http://dl.4players.de/ts/releases/ 2>&1 \
 		| sed -n -u -e "s@.\+ URL: \([^ ]\+\) .\+@\1@p" -e "s/&/\&amp;/" \
 		| grep -i teamspeak3-server > download.list.tmp
@@ -54,29 +58,29 @@ download_list() {
 }
 
 vercomp () {
-    if [[ $1 == $2 ]]; then
-        echo "="
+	if [[ $1 == $2 ]]; then
+		echo "="
 		return
-    fi
-    local IFS=.
-    local i ver1=($1) ver2=($2)
-    # fill empty fields in ver1 with zeros
-    for ((i=${#ver1[@]}; i<${#ver2[@]}; i++)); do
-        ver1[i]=0
-    done
-    for ((i=0; i<${#ver1[@]}; i++)); do
-        if [[ -z ${ver2[i]} ]]; then
-            # fill empty fields in ver2 with zeros
-            ver2[i]=0
-        fi
-        if ((10#${ver1[i]} > 10#${ver2[i]})); then
-            echo ">"
-        fi
-        if ((10#${ver1[i]} < 10#${ver2[i]})); then
+	fi
+	local IFS=.
+	local i ver1=($1) ver2=($2)
+	# fill empty fields in ver1 with zeros
+	for ((i=${#ver1[@]}; i<${#ver2[@]}; i++)); do
+		ver1[i]=0
+	done
+	for ((i=0; i<${#ver1[@]}; i++)); do
+		if [[ -z ${ver2[i]} ]]; then
+			# fill empty fields in ver2 with zeros
+			ver2[i]=0
+		fi
+		if ((10#${ver1[i]} > 10#${ver2[i]})); then
+			echo ">"
+		fi
+		if ((10#${ver1[i]} < 10#${ver2[i]})); then
 			echo "<"
-            return
-        fi
-    done
+			return
+		fi
+	done
 	echo "="
 	return
 }
