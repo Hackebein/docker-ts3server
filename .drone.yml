@@ -1,7 +1,7 @@
 pipeline:
 
 # 3.0.0 (linux_amd64)
-  3.0.0-linux_amd64:
+  build-3.0.0-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -9,6 +9,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.0/teamspeak3-server_linux-amd64-3.0.0.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.0.tar.gz
+      - TS3SERVER_VERSION=3.0.0
     tags: 3.0.0-linux_amd64, 3.0.0
     secrets: [ docker_username, docker_password ]
     when:
@@ -16,7 +17,7 @@ pipeline:
       event: push
 
 # 3.0.1 (linux_amd64)
-  3.0.1-linux_amd64:
+  build-3.0.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -24,6 +25,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.1/teamspeak3-server_linux-amd64-3.0.1.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.1.tar.gz
+      - TS3SERVER_VERSION=3.0.1
     tags: 3.0.1-linux_amd64, 3.0.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -31,7 +33,7 @@ pipeline:
       event: push
 
 # 3.0.10.1 (linux_amd64)
-  3.0.10.1-linux_amd64:
+  build-3.0.10.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -39,6 +41,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.10.1/teamspeak3-server_linux-amd64-3.0.10.1.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.10.1.tar.gz
+      - TS3SERVER_VERSION=3.0.10.1
     tags: 3.0.10.1-linux_amd64, 3.0.10.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -46,7 +49,7 @@ pipeline:
       event: push
 
 # 3.0.10.2 (linux_amd64)
-  3.0.10.2-linux_amd64:
+  build-3.0.10.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -54,6 +57,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.10.2/teamspeak3-server_linux-amd64-3.0.10.2.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.10.2.tar.gz
+      - TS3SERVER_VERSION=3.0.10.2
     tags: 3.0.10.2-linux_amd64, 3.0.10.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -61,7 +65,7 @@ pipeline:
       event: push
 
 # 3.0.10.3 (linux_amd64)
-  3.0.10.3-linux_amd64:
+  build-3.0.10.3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -69,6 +73,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.10.3/teamspeak3-server_linux-amd64-3.0.10.3.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.10.3.tar.gz
+      - TS3SERVER_VERSION=3.0.10.3
     tags: 3.0.10.3-linux_amd64, 3.0.10.3
     secrets: [ docker_username, docker_password ]
     when:
@@ -76,7 +81,7 @@ pipeline:
       event: push
 
 # 3.0.10 (linux_amd64)
-  3.0.10-linux_amd64:
+  build-3.0.10-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -84,6 +89,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.10/teamspeak3-server_linux-amd64-3.0.10.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.10.tar.gz
+      - TS3SERVER_VERSION=3.0.10
     tags: 3.0.10-linux_amd64, 3.0.10
     secrets: [ docker_username, docker_password ]
     when:
@@ -91,7 +97,7 @@ pipeline:
       event: push
 
 # 3.0.11.1 (linux_amd64)
-  3.0.11.1-linux_amd64:
+  build-3.0.11.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -99,6 +105,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11.1/teamspeak3-server_linux-amd64-3.0.11.1.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.11.1.tar.gz
+      - TS3SERVER_VERSION=3.0.11.1
     tags: 3.0.11.1-linux_amd64, 3.0.11.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -106,7 +113,7 @@ pipeline:
       event: push
 
 # 3.0.11.2 (linux_amd64)
-  3.0.11.2-linux_amd64:
+  build-3.0.11.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -114,6 +121,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11.2/teamspeak3-server_linux-amd64-3.0.11.2.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.11.2.tar.gz
+      - TS3SERVER_VERSION=3.0.11.2
     tags: 3.0.11.2-linux_amd64, 3.0.11.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -121,7 +129,7 @@ pipeline:
       event: push
 
 # 3.0.11.3 (linux_amd64)
-  3.0.11.3-linux_amd64:
+  build-3.0.11.3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -129,6 +137,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11.3/teamspeak3-server_linux-amd64-3.0.11.3.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.11.3.tar.gz
+      - TS3SERVER_VERSION=3.0.11.3
     tags: 3.0.11.3-linux_amd64, 3.0.11.3
     secrets: [ docker_username, docker_password ]
     when:
@@ -136,7 +145,7 @@ pipeline:
       event: push
 
 # 3.0.11.4 (linux_amd64)
-  3.0.11.4-linux_amd64:
+  build-3.0.11.4-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -144,6 +153,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
+      - TS3SERVER_VERSION=3.0.11.4
     tags: 3.0.11.4-linux_amd64, 3.0.11.4
     secrets: [ docker_username, docker_password ]
     when:
@@ -151,7 +161,7 @@ pipeline:
       event: push
 
 # 3.0.11 (linux_amd64)
-  3.0.11-linux_amd64:
+  build-3.0.11-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -159,6 +169,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.11/teamspeak3-server_linux-amd64-3.0.11.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.11.tar.gz
+      - TS3SERVER_VERSION=3.0.11
     tags: 3.0.11-linux_amd64, 3.0.11
     secrets: [ docker_username, docker_password ]
     when:
@@ -166,7 +177,7 @@ pipeline:
       event: push
 
 # 3.0.12.1 (linux_amd64)
-  3.0.12.1-linux_amd64:
+  build-3.0.12.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -174,6 +185,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.1/teamspeak3-server_linux_amd64-3.0.12.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.1.tar.bz2
+      - TS3SERVER_VERSION=3.0.12.1
     tags: 3.0.12.1-linux_amd64, 3.0.12.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -181,7 +193,7 @@ pipeline:
       event: push
 
 # 3.0.12.2 (linux_amd64)
-  3.0.12.2-linux_amd64:
+  build-3.0.12.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -189,6 +201,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.2/teamspeak3-server_linux_amd64-3.0.12.2.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.2.tar.bz2
+      - TS3SERVER_VERSION=3.0.12.2
     tags: 3.0.12.2-linux_amd64, 3.0.12.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -196,7 +209,7 @@ pipeline:
       event: push
 
 # 3.0.12.3 (linux_amd64)
-  3.0.12.3-linux_amd64:
+  build-3.0.12.3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -204,6 +217,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2
+      - TS3SERVER_VERSION=3.0.12.3
     tags: 3.0.12.3-linux_amd64, 3.0.12.3
     secrets: [ docker_username, docker_password ]
     when:
@@ -211,7 +225,7 @@ pipeline:
       event: push
 
 # 3.0.12.4 (linux_amd64)
-  3.0.12.4-linux_amd64:
+  build-3.0.12.4-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -219,6 +233,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.4/teamspeak3-server_linux_amd64-3.0.12.4.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.4.tar.bz2
+      - TS3SERVER_VERSION=3.0.12.4
     tags: 3.0.12.4-linux_amd64, 3.0.12.4
     secrets: [ docker_username, docker_password ]
     when:
@@ -226,7 +241,7 @@ pipeline:
       event: push
 
 # 3.0.12 (linux_amd64)
-  3.0.12-linux_amd64:
+  build-3.0.12-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -234,6 +249,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12/teamspeak3-server_linux_amd64-3.0.12.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.tar.bz2
+      - TS3SERVER_VERSION=3.0.12
     tags: 3.0.12-linux_amd64, 3.0.12
     secrets: [ docker_username, docker_password ]
     when:
@@ -241,7 +257,7 @@ pipeline:
       event: push
 
 # 3.0.13.1 (linux_amd64)
-  3.0.13.1-linux_amd64:
+  build-3.0.13.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -249,6 +265,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.1/teamspeak3-server_linux_amd64-3.0.13.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.1.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.1
     tags: 3.0.13.1-linux_amd64, 3.0.13.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -256,7 +273,7 @@ pipeline:
       event: push
 
 # 3.0.13.2 (linux_amd64)
-  3.0.13.2-linux_amd64:
+  build-3.0.13.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -264,6 +281,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.2/teamspeak3-server_linux_amd64-3.0.13.2.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.2.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.2
     tags: 3.0.13.2-linux_amd64, 3.0.13.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -271,7 +289,7 @@ pipeline:
       event: push
 
 # 3.0.13.3 (linux_amd64)
-  3.0.13.3-linux_amd64:
+  build-3.0.13.3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -279,6 +297,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.3/teamspeak3-server_linux_amd64-3.0.13.3.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.3.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.3
     tags: 3.0.13.3-linux_amd64, 3.0.13.3
     secrets: [ docker_username, docker_password ]
     when:
@@ -286,7 +305,7 @@ pipeline:
       event: push
 
 # 3.0.13.4 (linux_amd64)
-  3.0.13.4-linux_amd64:
+  build-3.0.13.4-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -294,6 +313,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.4/teamspeak3-server_linux_amd64-3.0.13.4.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.4.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.4
     tags: 3.0.13.4-linux_amd64, 3.0.13.4
     secrets: [ docker_username, docker_password ]
     when:
@@ -301,7 +321,7 @@ pipeline:
       event: push
 
 # 3.0.13.5 (linux_amd64)
-  3.0.13.5-linux_amd64:
+  build-3.0.13.5-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -309,6 +329,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.5/teamspeak3-server_linux_amd64-3.0.13.5.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.5.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.5
     tags: 3.0.13.5-linux_amd64, 3.0.13.5
     secrets: [ docker_username, docker_password ]
     when:
@@ -316,7 +337,7 @@ pipeline:
       event: push
 
 # 3.0.13.6 (linux_amd64)
-  3.0.13.6-linux_amd64:
+  build-3.0.13.6-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -324,6 +345,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.6
     tags: 3.0.13.6-linux_amd64, 3.0.13.6
     secrets: [ docker_username, docker_password ]
     when:
@@ -331,7 +353,7 @@ pipeline:
       event: push
 
 # 3.0.13.7 (linux_amd64)
-  3.0.13.7-linux_amd64:
+  build-3.0.13.7-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -339,6 +361,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.7/teamspeak3-server_linux_amd64-3.0.13.7.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.7.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.7
     tags: 3.0.13.7-linux_amd64, 3.0.13.7
     secrets: [ docker_username, docker_password ]
     when:
@@ -346,7 +369,7 @@ pipeline:
       event: push
 
 # 3.0.13.8 (linux_amd64)
-  3.0.13.8-linux_amd64:
+  build-3.0.13.8-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -354,6 +377,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.8/teamspeak3-server_linux_amd64-3.0.13.8.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.8.tar.bz2
+      - TS3SERVER_VERSION=3.0.13.8
     tags: 3.0.13.8-linux_amd64, 3.0.13.8
     secrets: [ docker_username, docker_password ]
     when:
@@ -361,7 +385,7 @@ pipeline:
       event: push
 
 # 3.0.13 (linux_amd64)
-  3.0.13-linux_amd64:
+  build-3.0.13-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -369,6 +393,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13/teamspeak3-server_linux_amd64-3.0.13.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.tar.bz2
+      - TS3SERVER_VERSION=3.0.13
     tags: 3.0.13-linux_amd64, 3.0.13
     secrets: [ docker_username, docker_password ]
     when:
@@ -376,7 +401,7 @@ pipeline:
       event: push
 
 # 3.0.2 (linux_amd64)
-  3.0.2-linux_amd64:
+  build-3.0.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -384,6 +409,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.2/teamspeak3-server_linux-amd64-3.0.2.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.2.tar.gz
+      - TS3SERVER_VERSION=3.0.2
     tags: 3.0.2-linux_amd64, 3.0.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -391,7 +417,7 @@ pipeline:
       event: push
 
 # 3.0.3 (linux_amd64)
-  3.0.3-linux_amd64:
+  build-3.0.3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -399,6 +425,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.3/teamspeak3-server_linux-amd64-3.0.3.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.3.tar.gz
+      - TS3SERVER_VERSION=3.0.3
     tags: 3.0.3-linux_amd64, 3.0.3
     secrets: [ docker_username, docker_password ]
     when:
@@ -406,7 +433,7 @@ pipeline:
       event: push
 
 # 3.0.5 (linux_amd64)
-  3.0.5-linux_amd64:
+  build-3.0.5-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -414,6 +441,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.5/teamspeak3-server_linux-amd64-3.0.5.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.5.tar.gz
+      - TS3SERVER_VERSION=3.0.5
     tags: 3.0.5-linux_amd64, 3.0.5
     secrets: [ docker_username, docker_password ]
     when:
@@ -421,7 +449,7 @@ pipeline:
       event: push
 
 # 3.0.6.1 (linux_amd64)
-  3.0.6.1-linux_amd64:
+  build-3.0.6.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -429,6 +457,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.6.1/teamspeak3-server_linux-amd64-3.0.6.1.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.6.1.tar.gz
+      - TS3SERVER_VERSION=3.0.6.1
     tags: 3.0.6.1-linux_amd64, 3.0.6.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -436,7 +465,7 @@ pipeline:
       event: push
 
 # 3.0.6 (linux_amd64)
-  3.0.6-linux_amd64:
+  build-3.0.6-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -444,6 +473,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.6/teamspeak3-server_linux-amd64-3.0.6.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.6.tar.gz
+      - TS3SERVER_VERSION=3.0.6
     tags: 3.0.6-linux_amd64, 3.0.6
     secrets: [ docker_username, docker_password ]
     when:
@@ -451,7 +481,7 @@ pipeline:
       event: push
 
 # 3.0.7.1 (linux_amd64)
-  3.0.7.1-linux_amd64:
+  build-3.0.7.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -459,6 +489,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.7.1/teamspeak3-server_linux-amd64-3.0.7.1.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.7.1.tar.gz
+      - TS3SERVER_VERSION=3.0.7.1
     tags: 3.0.7.1-linux_amd64, 3.0.7.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -466,7 +497,7 @@ pipeline:
       event: push
 
 # 3.0.7.2 (linux_amd64)
-  3.0.7.2-linux_amd64:
+  build-3.0.7.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -474,6 +505,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.7.2/teamspeak3-server_linux-amd64-3.0.7.2.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.7.2.tar.gz
+      - TS3SERVER_VERSION=3.0.7.2
     tags: 3.0.7.2-linux_amd64, 3.0.7.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -481,7 +513,7 @@ pipeline:
       event: push
 
 # 3.0.7 (linux_amd64)
-  3.0.7-linux_amd64:
+  build-3.0.7-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -489,6 +521,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.7/teamspeak3-server_linux-amd64-3.0.7.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.7.tar.gz
+      - TS3SERVER_VERSION=3.0.7
     tags: 3.0.7-linux_amd64, 3.0.7
     secrets: [ docker_username, docker_password ]
     when:
@@ -496,7 +529,7 @@ pipeline:
       event: push
 
 # 3.0.8 (linux_amd64)
-  3.0.8-linux_amd64:
+  build-3.0.8-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -504,6 +537,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.8/teamspeak3-server_linux-amd64-3.0.8.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.8.tar.gz
+      - TS3SERVER_VERSION=3.0.8
     tags: 3.0.8-linux_amd64, 3.0.8
     secrets: [ docker_username, docker_password ]
     when:
@@ -511,7 +545,7 @@ pipeline:
       event: push
 
 # 3.0.9 (linux_amd64)
-  3.0.9-linux_amd64:
+  build-3.0.9-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -519,6 +553,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.9/teamspeak3-server_linux-amd64-3.0.9.tar.gz
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux-amd64-3.0.9.tar.gz
+      - TS3SERVER_VERSION=3.0.9
     tags: 3.0.9-linux_amd64, 3.0.9
     secrets: [ docker_username, docker_password ]
     when:
@@ -526,7 +561,7 @@ pipeline:
       event: push
 
 # 3.1.0 (linux_alpine)
-  3.1.0-linux_alpine:
+  build-3.1.0-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -534,6 +569,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.0/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0
     tags: 3.1.0-linux_alpine, 3.1.0
     secrets: [ docker_username, docker_password ]
     when:
@@ -541,7 +577,7 @@ pipeline:
       event: push
 
 # 3.1.0 (linux_amd64)
-  3.1.0-linux_amd64:
+  build-3.1.0-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -549,6 +585,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.0/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0
     tags: 3.1.0-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -556,7 +593,7 @@ pipeline:
       event: push
 
 # 3.1.1 (linux_alpine)
-  3.1.1-linux_alpine:
+  build-3.1.1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -564,6 +601,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_alpine-3.1.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.1.tar.bz2
+      - TS3SERVER_VERSION=3.1.1
     tags: 3.1.1-linux_alpine, 3.1.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -571,7 +609,7 @@ pipeline:
       event: push
 
 # 3.1.1 (linux_amd64)
-  3.1.1-linux_amd64:
+  build-3.1.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -579,6 +617,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+      - TS3SERVER_VERSION=3.1.1
     tags: 3.1.1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -586,7 +625,7 @@ pipeline:
       event: push
 
 # 3.1.2 (linux_alpine)
-  3.1.2-linux_alpine:
+  build-3.1.2-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -594,6 +633,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.2/teamspeak3-server_linux_alpine-3.1.2.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.2.tar.bz2
+      - TS3SERVER_VERSION=3.1.2
     tags: 3.1.2-linux_alpine, 3.1.2
     secrets: [ docker_username, docker_password ]
     when:
@@ -601,7 +641,7 @@ pipeline:
       event: push
 
 # 3.1.2 (linux_amd64)
-  3.1.2-linux_amd64:
+  build-3.1.2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -609,6 +649,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.2/teamspeak3-server_linux_amd64-3.1.2.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.2.tar.bz2
+      - TS3SERVER_VERSION=3.1.2
     tags: 3.1.2-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -616,7 +657,7 @@ pipeline:
       event: push
 
 # 3.1.3 (linux_alpine)
-  3.1.3-linux_alpine:
+  build-3.1.3-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -624,6 +665,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.3/teamspeak3-server_linux_alpine-3.1.3.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.3.tar.bz2
+      - TS3SERVER_VERSION=3.1.3
     tags: 3.1.3-linux_alpine, 3.1.3
     secrets: [ docker_username, docker_password ]
     when:
@@ -631,7 +673,7 @@ pipeline:
       event: push
 
 # 3.1.3 (linux_amd64)
-  3.1.3-linux_amd64:
+  build-3.1.3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -639,6 +681,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.3/teamspeak3-server_linux_amd64-3.1.3.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.3.tar.bz2
+      - TS3SERVER_VERSION=3.1.3
     tags: 3.1.3-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -646,7 +689,7 @@ pipeline:
       event: push
 
 # 3.2.0 (linux_alpine)
-  3.2.0-linux_alpine:
+  build-3.2.0-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -654,6 +697,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.2.0/teamspeak3-server_linux_alpine-3.2.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.2.0.tar.bz2
+      - TS3SERVER_VERSION=3.2.0
     tags: 3.2.0-linux_alpine, 3.2.0
     secrets: [ docker_username, docker_password ]
     when:
@@ -661,7 +705,7 @@ pipeline:
       event: push
 
 # 3.2.0 (linux_amd64)
-  3.2.0-linux_amd64:
+  build-3.2.0-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -669,6 +713,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.2.0/teamspeak3-server_linux_amd64-3.2.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.2.0.tar.bz2
+      - TS3SERVER_VERSION=3.2.0
     tags: 3.2.0-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -676,7 +721,7 @@ pipeline:
       event: push
 
 # 3.3.0 (linux_alpine)
-  3.3.0-linux_alpine:
+  build-3.3.0-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -684,6 +729,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0
     tags: 3.3.0-linux_alpine, 3.3.0
     secrets: [ docker_username, docker_password ]
     when:
@@ -691,7 +737,7 @@ pipeline:
       event: push
 
 # 3.3.0 (linux_amd64)
-  3.3.0-linux_amd64:
+  build-3.3.0-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -699,6 +745,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0
     tags: 3.3.0-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -706,7 +753,7 @@ pipeline:
       event: push
 
 # 3.3.1 (linux_alpine)
-  3.3.1-linux_alpine:
+  build-3.3.1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -714,6 +761,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.1/teamspeak3-server_linux_alpine-3.3.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.1.tar.bz2
+      - TS3SERVER_VERSION=3.3.1
     tags: 3.3.1-linux_alpine, 3.3.1
     secrets: [ docker_username, docker_password ]
     when:
@@ -721,7 +769,7 @@ pipeline:
       event: push
 
 # 3.3.1 (linux_amd64)
-  3.3.1-linux_amd64:
+  build-3.3.1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -729,6 +777,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.1/teamspeak3-server_linux_amd64-3.3.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.1.tar.bz2
+      - TS3SERVER_VERSION=3.3.1
     tags: 3.3.1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -736,7 +785,7 @@ pipeline:
       event: push
 
 # 3.4.0 (linux_alpine)
-  3.4.0-linux_alpine:
+  build-3.4.0-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -744,6 +793,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+      - TS3SERVER_VERSION=3.4.0
     tags: 3.4.0-linux_alpine, 3.4.0
     secrets: [ docker_username, docker_password ]
     when:
@@ -751,7 +801,7 @@ pipeline:
       event: push
 
 # 3.4.0 (linux_amd64)
-  3.4.0-linux_amd64:
+  build-3.4.0-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -759,6 +809,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_amd64-3.4.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.4.0.tar.bz2
+      - TS3SERVER_VERSION=3.4.0
     tags: 3.4.0-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -766,7 +817,7 @@ pipeline:
       event: push
 
 # 3.5.0 (linux_alpine)
-  3.5.0-linux_alpine:
+  build-3.5.0-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -774,6 +825,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.5.0/teamspeak3-server_linux_alpine-3.5.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+      - TS3SERVER_VERSION=3.5.0
     tags: 3.5.0-linux_alpine, 3.5.0, latest
     secrets: [ docker_username, docker_password ]
     when:
@@ -781,7 +833,7 @@ pipeline:
       event: push
 
 # 3.5.0 (linux_amd64)
-  3.5.0-linux_amd64:
+  build-3.5.0-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -789,6 +841,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/3.5.0/teamspeak3-server_linux_amd64-3.5.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+      - TS3SERVER_VERSION=3.5.0
     tags: 3.5.0-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -796,7 +849,7 @@ pipeline:
       event: push
 
 # 3.1.0-beta1 (linux_alpine)
-  3.1.0-beta1-linux_alpine:
+  build-3.1.0-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -804,6 +857,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-1/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0-beta1
     tags: 3.1.0-beta1-linux_alpine, 3.1.0-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -811,7 +865,7 @@ pipeline:
       event: push
 
 # 3.1.0-beta1 (linux_amd64)
-  3.1.0-beta1-linux_amd64:
+  build-3.1.0-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -819,6 +873,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-1/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0-beta1
     tags: 3.1.0-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -826,7 +881,7 @@ pipeline:
       event: push
 
 # 3.1.0-beta2 (linux_alpine)
-  3.1.0-beta2-linux_alpine:
+  build-3.1.0-beta2-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -834,6 +889,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-2/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0-beta2
     tags: 3.1.0-beta2-linux_alpine, 3.1.0-beta2
     secrets: [ docker_username, docker_password ]
     when:
@@ -841,7 +897,7 @@ pipeline:
       event: push
 
 # 3.1.0-beta2 (linux_amd64)
-  3.1.0-beta2-linux_amd64:
+  build-3.1.0-beta2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -849,6 +905,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-2/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0-beta2
     tags: 3.1.0-beta2-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -856,7 +913,7 @@ pipeline:
       event: push
 
 # 3.1.0-beta3 (linux_alpine)
-  3.1.0-beta3-linux_alpine:
+  build-3.1.0-beta3-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -864,6 +921,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-3/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0-beta3
     tags: 3.1.0-beta3-linux_alpine, 3.1.0-beta3
     secrets: [ docker_username, docker_password ]
     when:
@@ -871,7 +929,7 @@ pipeline:
       event: push
 
 # 3.1.0-beta3 (linux_amd64)
-  3.1.0-beta3-linux_amd64:
+  build-3.1.0-beta3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -879,6 +937,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-3/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+      - TS3SERVER_VERSION=3.1.0-beta3
     tags: 3.1.0-beta3-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -886,7 +945,7 @@ pipeline:
       event: push
 
 # 3.1.1-beta1 (linux_alpine)
-  3.1.1-beta1-linux_alpine:
+  build-3.1.1-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -894,6 +953,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.1-Beta-1/teamspeak3-server_linux_alpine-3.1.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.1.tar.bz2
+      - TS3SERVER_VERSION=3.1.1-beta1
     tags: 3.1.1-beta1-linux_alpine, 3.1.1-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -901,7 +961,7 @@ pipeline:
       event: push
 
 # 3.1.1-beta1 (linux_amd64)
-  3.1.1-beta1-linux_amd64:
+  build-3.1.1-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -909,6 +969,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.1-Beta-1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+      - TS3SERVER_VERSION=3.1.1-beta1
     tags: 3.1.1-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -916,7 +977,7 @@ pipeline:
       event: push
 
 # 3.1.2-beta1 (linux_alpine)
-  3.1.2-beta1-linux_alpine:
+  build-3.1.2-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -924,6 +985,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.2-Beta-1/teamspeak3-server_linux_alpine-3.1.2.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.2.tar.bz2
+      - TS3SERVER_VERSION=3.1.2-beta1
     tags: 3.1.2-beta1-linux_alpine, 3.1.2-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -931,7 +993,7 @@ pipeline:
       event: push
 
 # 3.1.2-beta1 (linux_amd64)
-  3.1.2-beta1-linux_amd64:
+  build-3.1.2-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -939,6 +1001,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.2-Beta-1/teamspeak3-server_linux_amd64-3.1.2.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.2.tar.bz2
+      - TS3SERVER_VERSION=3.1.2-beta1
     tags: 3.1.2-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -946,7 +1009,7 @@ pipeline:
       event: push
 
 # 3.1.3-beta1 (linux_alpine)
-  3.1.3-beta1-linux_alpine:
+  build-3.1.3-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -954,6 +1017,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.3-Beta-1/teamspeak3-server_linux_alpine-3.1.3.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.3.tar.bz2
+      - TS3SERVER_VERSION=3.1.3-beta1
     tags: 3.1.3-beta1-linux_alpine, 3.1.3-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -961,7 +1025,7 @@ pipeline:
       event: push
 
 # 3.1.3-beta1 (linux_amd64)
-  3.1.3-beta1-linux_amd64:
+  build-3.1.3-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -969,6 +1033,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.3-Beta-1/teamspeak3-server_linux_amd64-3.1.3.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.3.tar.bz2
+      - TS3SERVER_VERSION=3.1.3-beta1
     tags: 3.1.3-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -976,7 +1041,7 @@ pipeline:
       event: push
 
 # 3.2.0-beta1 (linux_alpine)
-  3.2.0-beta1-linux_alpine:
+  build-3.2.0-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -984,6 +1049,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.2.0-Beta-1/teamspeak3-server_linux_alpine-3.2.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.2.0.tar.bz2
+      - TS3SERVER_VERSION=3.2.0-beta1
     tags: 3.2.0-beta1-linux_alpine, 3.2.0-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -991,7 +1057,7 @@ pipeline:
       event: push
 
 # 3.2.0-beta1 (linux_amd64)
-  3.2.0-beta1-linux_amd64:
+  build-3.2.0-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -999,6 +1065,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.2.0-Beta-1/teamspeak3-server_linux_amd64-3.2.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.2.0.tar.bz2
+      - TS3SERVER_VERSION=3.2.0-beta1
     tags: 3.2.0-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1006,7 +1073,7 @@ pipeline:
       event: push
 
 # 3.3.0-beta1 (linux_alpine)
-  3.3.0-beta1-linux_alpine:
+  build-3.3.0-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1014,6 +1081,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-1/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0-beta1
     tags: 3.3.0-beta1-linux_alpine, 3.3.0-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -1021,7 +1089,7 @@ pipeline:
       event: push
 
 # 3.3.0-beta1 (linux_amd64)
-  3.3.0-beta1-linux_amd64:
+  build-3.3.0-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1029,6 +1097,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-1/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0-beta1
     tags: 3.3.0-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1036,7 +1105,7 @@ pipeline:
       event: push
 
 # 3.3.0-beta2 (linux_alpine)
-  3.3.0-beta2-linux_alpine:
+  build-3.3.0-beta2-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1044,6 +1113,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-2/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0-beta2
     tags: 3.3.0-beta2-linux_alpine, 3.3.0-beta2
     secrets: [ docker_username, docker_password ]
     when:
@@ -1051,7 +1121,7 @@ pipeline:
       event: push
 
 # 3.3.0-beta2 (linux_amd64)
-  3.3.0-beta2-linux_amd64:
+  build-3.3.0-beta2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1059,6 +1129,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-2/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0-beta2
     tags: 3.3.0-beta2-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1066,7 +1137,7 @@ pipeline:
       event: push
 
 # 3.3.0-beta3 (linux_alpine)
-  3.3.0-beta3-linux_alpine:
+  build-3.3.0-beta3-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1074,6 +1145,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-3/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0-beta3
     tags: 3.3.0-beta3-linux_alpine, 3.3.0-beta3
     secrets: [ docker_username, docker_password ]
     when:
@@ -1081,7 +1153,7 @@ pipeline:
       event: push
 
 # 3.3.0-beta3 (linux_amd64)
-  3.3.0-beta3-linux_amd64:
+  build-3.3.0-beta3-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1089,6 +1161,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-3/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+      - TS3SERVER_VERSION=3.3.0-beta3
     tags: 3.3.0-beta3-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1096,7 +1169,7 @@ pipeline:
       event: push
 
 # 3.3.1-steadyclock (linux_alpine)
-  3.3.1-steadyclock-linux_alpine:
+  build-3.3.1-steadyclock-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1104,6 +1177,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.1-steadyclock/teamspeak3-server_linux_alpine-3.3.1-steadyclock.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.1-steadyclock.tar.bz2
+      - TS3SERVER_VERSION=3.3.1-steadyclock
     tags: 3.3.1-steadyclock-linux_alpine, 3.3.1-steadyclock
     secrets: [ docker_username, docker_password ]
     when:
@@ -1111,7 +1185,7 @@ pipeline:
       event: push
 
 # 3.3.1-steadyclock (linux_amd64)
-  3.3.1-steadyclock-linux_amd64:
+  build-3.3.1-steadyclock-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1119,6 +1193,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.1-steadyclock/teamspeak3-server_linux_amd64-3.3.1-steadyclock.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.1-steadyclock.tar.bz2
+      - TS3SERVER_VERSION=3.3.1-steadyclock
     tags: 3.3.1-steadyclock-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1126,7 +1201,7 @@ pipeline:
       event: push
 
 # 3.4.0-beta1 (linux_alpine)
-  3.4.0-beta1-linux_alpine:
+  build-3.4.0-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1134,6 +1209,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.4.0-Beta-1/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+      - TS3SERVER_VERSION=3.4.0-beta1
     tags: 3.4.0-beta1-linux_alpine, 3.4.0-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -1141,7 +1217,7 @@ pipeline:
       event: push
 
 # 3.4.0-beta1 (linux_amd64)
-  3.4.0-beta1-linux_amd64:
+  build-3.4.0-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1149,6 +1225,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.4.0-Beta-1/teamspeak3-server_linux_amd64-3.4.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.4.0.tar.bz2
+      - TS3SERVER_VERSION=3.4.0-beta1
     tags: 3.4.0-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1156,7 +1233,7 @@ pipeline:
       event: push
 
 # 3.5.0-beta1 (linux_alpine)
-  3.5.0-beta1-linux_alpine:
+  build-3.5.0-beta1-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1164,6 +1241,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-1/teamspeak3-server_linux_alpine-3.5.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+      - TS3SERVER_VERSION=3.5.0-beta1
     tags: 3.5.0-beta1-linux_alpine, 3.5.0-beta1
     secrets: [ docker_username, docker_password ]
     when:
@@ -1171,7 +1249,7 @@ pipeline:
       event: push
 
 # 3.5.0-beta1 (linux_amd64)
-  3.5.0-beta1-linux_amd64:
+  build-3.5.0-beta1-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1179,6 +1257,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-1/teamspeak3-server_linux_amd64-3.5.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+      - TS3SERVER_VERSION=3.5.0-beta1
     tags: 3.5.0-beta1-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:
@@ -1186,7 +1265,7 @@ pipeline:
       event: push
 
 # 3.5.0-beta2 (linux_alpine)
-  3.5.0-beta2-linux_alpine:
+  build-3.5.0-beta2-linux_alpine:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1194,6 +1273,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-2/teamspeak3-server_linux_alpine-3.5.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+      - TS3SERVER_VERSION=3.5.0-beta2
     tags: 3.5.0-beta2-linux_alpine, 3.5.0-beta2
     secrets: [ docker_username, docker_password ]
     when:
@@ -1201,7 +1281,7 @@ pipeline:
       event: push
 
 # 3.5.0-beta2 (linux_amd64)
-  3.5.0-beta2-linux_amd64:
+  build-3.5.0-beta2-linux_amd64:
     image: plugins/docker
     # group: versions
     repo: hackebein/ts3server
@@ -1209,6 +1289,7 @@ pipeline:
     build_args:
       - TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-2/teamspeak3-server_linux_amd64-3.5.0.tar.bz2
       - TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+      - TS3SERVER_VERSION=3.5.0-beta2
     tags: 3.5.0-beta2-linux_amd64
     secrets: [ docker_username, docker_password ]
     when:

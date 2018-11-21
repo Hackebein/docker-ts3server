@@ -20,6 +20,8 @@ RUN chmod ug+x /app/ts3server_startscript.sh \
 FROM alpine:latest
 MAINTAINER Lars Olzem <hackebein@gmail.com>
 COPY --from=base /app /app
+ARG TS3SERVER_VERSION
+ENV TS3SERVER_VERSION=$TS3SERVER_VERSION
 ENV LD_LIBRARY_PATH=.:./redist
 RUN apk add --update --no-cache \
 		bash \
