@@ -9,6 +9,7 @@ template_publish() {
 	else
 		DEFAULT_ARCH=linux_alpine
 	fi
+	# TODO: find a smoother way for tags
 	TAGS="${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}"
 	if [[ "${TS3SERVER_ARCH}" == "${DEFAULT_ARCH}" ]]; then
 		TAGS="${TAGS}, ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}"
@@ -27,6 +28,7 @@ template_publish() {
     build_args:
       - TS3SERVER_URL=${TS3SERVER_URL}
       - TS3SERVER_ARCHIVE=${TS3SERVER_ARCHIVE}
+      - TS3SERVER_VERSION=${TS3SERVER_VERSION}
     tags: ${TAGS}
     secrets: [ docker_username, docker_password ]
     when:
@@ -35,6 +37,7 @@ template_publish() {
 EOF
 }
 
+# TODO: sort by release date?
 download_list() {
 	if [[ ! -f "download.list" ]]; then
 		rm download.list.tmp
@@ -43,12 +46,6 @@ download_list() {
 		| grep -i teamspeak3-server > download.list.tmp
 		rm -rf dl.4players.de
 		mv download.list.tmp download.list
-
-		# TODO: sort by release date?
-		#| echo $() \
-		#| sort \
-		#| cut -d'|' -f2-
-		#curl -I http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-2/teamspeak3-server_win64-3.5.0.zip 2>&1
 	fi
 	cat "download.list"
 }
