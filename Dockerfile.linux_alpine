@@ -11,7 +11,7 @@ COPY build_linux /app
 RUN chmod ug+x /app/ts3server_startscript.sh \
  && rm -rf \
 		/var/lib/apt/lists/* \
-    	/app/CHANGELOG \
+		/app/CHANGELOG \
 		/app/doc \
 		/app/docs \
 		/app/tsdns \
@@ -26,6 +26,7 @@ ENV LD_LIBRARY_PATH=.:./redist
 RUN apk add --update --no-cache \
 		bash \
 		libstdc++ \
+		ca-certificates \
 		busybox-extras \
 		expect
 WORKDIR /app

@@ -17,12 +17,15 @@ template_publish() {
 			TAGS="${TAGS}, latest${TS3SERVER_VERSION_EXTENSION}"
 		fi
 	fi
+	if [[ "${TS3SERVER_VERSION}" == "${DEFAULT_VERSION}" ]]; then
+		TAGS="${TAGS}, latest${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}"
+	fi
 	cat <<EOF
 
 # ${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION} (${TS3SERVER_ARCH})
   build-${TS3SERVER_VERSION}${TS3SERVER_VERSION_EXTENSION}-${TS3SERVER_ARCH}:
     image: plugins/docker
-    # group: versions
+    group: versions
     repo: hackebein/ts3server
     dockerfile: Dockerfile.${TS3SERVER_ARCH}
     build_args:
@@ -40,7 +43,7 @@ EOF
 # TODO: sort by release date?
 download_list() {
 	if [[ ! -f "download.list" ]]; then
-		rm download.list.tmp
+		rm -f download.list.tmp
 		wget --spider --recursive --no-parent --level=inf –-delete-after --no-verbose http://dl.4players.de/ts/releases/ 2>&1 \
 		| sed -n -u -e "s@.\+ URL: \([^ ]\+\) .\+@\1@p" -e "s/&/\&amp;/" \
 		| grep -i teamspeak3-server > download.list.tmp
