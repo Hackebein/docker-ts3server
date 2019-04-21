@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+###
+# TeamSpeak Services
+###
+
+  ts3server:
+    image: hackebein/ts3server:latest
+    container_name: ts3server
+    volumes:
+     - /etc/localtime:/etc/localtime:ro
+     - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+     - ./files:/app/files:rw
+     # - ./licensekey.dat:/app/licensekey.dat:rw
+     - ../misc/ts3server_before_SIGINT.sh:/app/ts3server_before_SIGINT.sh:ro
+    environment:
+     - TS3SERVER_LICENSE=accept
+     - TS3SERVER_LOG_QUERY_COMMANDS=0
+     - TS3SERVER_PATCH_ENABLE=true
+     - TS3SERVER_PATCH_GDPR_SAVE=true
+     - TS3SERVER_PATCH_BADGES_DISABLE=true
+     - TS3SERVER_QUERY_PASSWORD=QueryPassword
+    restart: unless-stopped
+    stop_signal: SIGINT
+    ports:
+     - 9987:9987/udp
+     - 10011:10011
+     - 30033:30033

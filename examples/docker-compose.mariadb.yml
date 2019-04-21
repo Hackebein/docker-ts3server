@@ -1,0 +1,57 @@
+version: '2'
+
+services:
+
+###
+# Databasae Services
+###
+
+  database:
+    image: mariadb
+    container_name: database
+    volumes:
+     - /etc/localtime:/etc/localtime:ro
+     - ./database/lib:/var/lib/mysql:rw
+    restart: unless-stopped
+    environment:
+     - MYSQL_ROOT_PASSWORD=MYSQLPWD
+     - MYSQL_USER=DatabaseUser
+     - MYSQL_PASSWORD=DatabasePassword
+     - MYSQL_DATABASE=ts3server
+    ports:
+     - 3306:3306
+
+###
+# TeamSpeak Services
+###
+
+  ts3server:
+    image: hackebein/ts3server:latest
+    container_name: ts3server
+    depends_on:
+     - database
+    volumes:
+     - /etc/localtime:/etc/localtime:ro
+     - /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro
+     - ./files:/app/files:rw
+     # - ./licensekey.dat:/app/licensekey.dat:rw
+     - ../misc/ts3server_before_SIGINT.sh:/app/ts3server_before_SIGINT.sh:ro
+    environment:
+     - TS3SERVER_LICENSE=accept
+     - TS3SERVER_DB_PLUGIN=ts3db_mariadb
+     - TS3SERVER_DB_SQLCREATEPATH=create_mariadb
+     - TS3SERVER_DB_HOST=database
+     - TS3SERVER_DB_USER=DatabaseUser
+     - TS3SERVER_DB_PASSWORD=DatabasePassword
+     - TS3SERVER_DB_NAME=ts3server
+     - TS3SERVER_LOG_QUERY_COMMANDS=0
+     - TS3SERVER_PATCH_ENABLE=true
+     - TS3SERVER_PATCH_GDPR_SAVE=true
+     - TS3SERVER_PATCH_BADGES_DISABLE=true
+     - TS3SERVER_QUERY_PASSWORD=QueryPassword
+    restart: unless-stopped
+    stop_signal: SIGINT
+    ports:
+     - 9987:9987/udp
+     - 10011:10011
+     - 30033:30033
