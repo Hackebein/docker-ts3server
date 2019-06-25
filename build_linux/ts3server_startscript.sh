@@ -57,17 +57,19 @@ trailingslash () {
 }
 
 _sig () {
-	export SIG=$1
-	SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
-	echo "Caught ${SIG} signal!"
-	if [[ -x "./ts3server_before_${SIG}.sh" ]]; then
-		./ts3server_before_${SIG}.sh
-	fi
-	kill -s ${SIG} ${PID}
-	if [[ -x "./ts3server_after_${SIG}.sh" ]]; then
-		./ts3server_after_${SIG}.sh
-	fi
-	wait "${PID}"
+    if [[ -n "${PID:-}" ]]; then
+	    export SIG=$1
+	    SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
+	    echo "Caught ${SIG} signal!"
+	    if [[ -x "./ts3server_before_${SIG}.sh" ]]; then
+    		./ts3server_before_${SIG}.sh
+    	fi
+    	kill -s ${SIG} ${PID}
+    	if [[ -x "./ts3server_after_${SIG}.sh" ]]; then
+		    ./ts3server_after_${SIG}.sh
+	    fi
+	    wait "${PID}"
+    fi
 }
 
 # environment
