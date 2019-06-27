@@ -23,9 +23,9 @@ MAINTAINER Lars Olzem <hackebein@gmail.com>
 COPY --from=base /app /app
 ARG TS3SERVER_VERSION
 ENV TS3SERVER_VERSION="$TS3SERVER_VERSION" \
-    LD_LIBRARY_PATH=".:./redist" \
-    LANG="C.UTF-8" \
-    LC_ALL="C.UTF-8"
+	LD_LIBRARY_PATH=".:./redist" \
+	LANG="C.UTF-8" \
+	LC_ALL="C.UTF-8"
 RUN apt update \
  && apt install -y \
 		ca-certificates \
