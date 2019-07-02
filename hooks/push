@@ -5,4 +5,4 @@ echo "[***] push is running"
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
 
-docker-compose push
+docker-compose push --ignore-push-failures
