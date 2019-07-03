@@ -5,12 +5,11 @@ echo "[***] pre_push is running"
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
 
-while IFS= read -r IMAGE_NAME
-do
-    echo "[***] Examine Image '${IMAGE_NAME}' for difference"
-    changes=$(docker run --rm -v "/var/run/docker.sock:/var/run/docker.sock" hackebein/docker-image-diff "${IMAGE_NAME}")
-    if [[ "$changes" == "0" ]]; then
-        echo "[***] Remove identical image '${IMAGE_NAME}'"
-        docker rmi "${IMAGE_NAME}"
-    fi
+while IFS= read -r IMAGE_NAME; do
+	echo "[***] Examine Image '${IMAGE_NAME}' for difference"
+	changes=$(docker run --rm -v "/var/run/docker.sock:/var/run/docker.sock" hackebein/docker-image-diff "${IMAGE_NAME}")
+	if [[ "$changes" == "0" ]]; then
+		echo "[***] Remove identical image '${IMAGE_NAME}'"
+		docker rmi "${IMAGE_NAME}"
+	fi
 done <<< $(docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO}:*")

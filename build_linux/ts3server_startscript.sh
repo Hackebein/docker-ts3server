@@ -57,19 +57,19 @@ trailingslash () {
 }
 
 _sig () {
-    if [[ -n "${PID:-}" ]]; then
-	    export SIG=$1
-	    SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
-	    echo "Caught ${SIG} signal!"
-	    if [[ -x "./ts3server_before_${SIG}.sh" ]]; then
-    		./ts3server_before_${SIG}.sh
-    	fi
-    	kill -s ${SIG} ${PID}
-    	if [[ -x "./ts3server_after_${SIG}.sh" ]]; then
-		    ./ts3server_after_${SIG}.sh
-	    fi
-	    wait "${PID}"
-    fi
+	if [[ -n "${PID:-}" ]]; then
+		export SIG=$1
+		SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
+		echo "Caught ${SIG} signal!"
+		if [[ -x "./ts3server_before_${SIG}.sh" ]]; then
+			./ts3server_before_${SIG}.sh
+		fi
+		kill -s ${SIG} ${PID}
+		if [[ -x "./ts3server_after_${SIG}.sh" ]]; then
+			./ts3server_after_${SIG}.sh
+		fi
+		wait "${PID}"
+	fi
 }
 
 # environment
@@ -191,12 +191,12 @@ fi
 if [[ "${TS3SERVER_QUERY_RAW_ENABLE}" == "true" &&  "${TS3SERVER_QUERY_SSH_ENABLE}" == "true" ]]; then
 	TS3SERVER_QUERY_PROTOCOLS=raw,ssh
 else
-    if [[ "${TS3SERVER_QUERY_RAW_ENABLE}" == "true" ]]; then
-        TS3SERVER_QUERY_PROTOCOLS=raw
-    fi
-    if [[ "${TS3SERVER_QUERY_SSH_ENABLE}" == "true" ]]; then
-        TS3SERVER_QUERY_PROTOCOLS=ssh
-    fi
+	if [[ "${TS3SERVER_QUERY_RAW_ENABLE}" == "true" ]]; then
+		TS3SERVER_QUERY_PROTOCOLS=raw
+	fi
+	if [[ "${TS3SERVER_QUERY_SSH_ENABLE}" == "true" ]]; then
+		TS3SERVER_QUERY_PROTOCOLS=ssh
+	fi
 fi
 
 # environment printing
