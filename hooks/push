@@ -6,4 +6,10 @@ echo "[***] push is running"
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
 
-docker-compose push --ignore-push-failures
+DOCKER_REGISTRY=$(echo "${DOCKER_REPO}" | cut -d'/' -f1)
+DOCKER_REPO_RELATIVE=$(echo "${DOCKER_REPO}" | cut -d'/' -f2-)
+
+docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*" | while read IMAGE_NAME_RELATIVE; do
+	echo "[***] Push Image '${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}'"
+	docker run --rm -v "/var/run/docker.sock:/var/run/docker.sock" hackebein/docker-image-diff "${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}"
+done
