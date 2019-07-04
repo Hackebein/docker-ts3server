@@ -8,6 +8,7 @@ TeamSpeak is a proprietary voice-over-Internet Protocol (VoIP) application for a
 
 ```
 docker run \
+    -e "TS3SERVER_LICENSE=accept" \
     -p 9987:9987/udp \
     -p 30033:30033 \
     -p 10011:10011 \
@@ -17,12 +18,19 @@ docker run \
 
 ## Basic
 
-### TS3SERVER_DB_CLEAR
-Default: 0
+### TS3SERVER_LICENSE
+Default: view
 
 Since: 3.0.0
 
-> If set to "1", the server database will be cleared before starting up the server. This is mainly used for testing. Usually this parameter should not be specified, so all server settings will be restored when the server process is restarted.
+> if set to "accept", the server will assume you have read and accepted the license it comes with. If this is set to "view", the ts3server will not start.
+
+### TS3SERVER_QUERY_PASSWORD
+Default: <random>
+
+Since: 3.0.0
+
+> Defines the server query admin password.
 
 ### TS3SERVER_DB_CLIENT_DAYS
 Default: 90
@@ -31,19 +39,7 @@ Since: 3.0.0
 
 > Defines how many days to keep unused client identities. Auto-pruning is triggered on every start and on every new month while the server is running.
 
-### TS3SERVER_LICENSE
-Default: view
-
-Since: 3.0.0
-
-> if set to "accept", the server will assume you have read and accepted the license it comes with. If this is set to "view", the ts3server will not start.
-
-### TS3SERVER_LOG_QUERY_COMMANDS
-Default: 1
-
-Since: 3.0.0
-
-> If set to '1', the server will log every ServerQuery command executed by clients. This can be useful while trying to diagnose several different issues.
+## Custom Patches
 
 ### TS3SERVER_PATCH_ENABLE
 Default: false
@@ -66,28 +62,21 @@ Since: 3.0.0
 
 > If set to 'true', the server save less ip adresses to fulfill the General Data Protection Regulation (GDPR).
 
-### TS3SERVER_PRINT_ENV
-Default: false
-
-Since: 3.0.0
-
-> If set to 'true', shows the environment at the beginning.
-
-### TS3SERVER_QUERY_PASSWORD
-Default:
-
-Since: 3.0.0
-
-> Defines the server query admin password.
-
 ## database
 
-### TS3SERVER_DB_CONNECTIONS
-Default: 10
+### TS3SERVER_DB_PLUGIN
+Default: ts3db_sqlite3
 
 Since: 3.0.0
 
-> The number of database connections used by the server. Please note that changing this value can have an affect on your servers performance. Possible values are 2-100.
+> Possible values: ts3db_sqlite3, ts3db_mariadb
+
+### TS3SERVER_DB_SQL_CREATE_PATH
+Default: create_sqlite
+
+Since: 3.0.0
+
+> Possible values: create_sqlite, create_mariadb
 
 ### TS3SERVER_DB_HOST
 Default: 127.0.0.1
@@ -95,6 +84,34 @@ Default: 127.0.0.1
 Since: 3.0.0
 
 > The hostname or IP addresss of your MariaDB/MySQL server.
+
+### TS3SERVER_DB_PORT
+Default: 3306
+
+Since: 3.0.0
+
+> The TCP port of your MariaDB/MySQL server.
+
+### TS3SERVER_DB_USER
+Default: root
+
+Since: 3.0.0
+
+> The username used to authenticate with your MariaDB/MySQL server.
+
+### TS3SERVER_DB_PASSWORD
+Default:
+
+Since: 3.0.0
+
+> The password used to authenticate with your MariaDB/MySQL server.
+
+### TS3SERVER_DB_NAME
+Default: test
+
+Since: 3.0.0
+
+> The name of a database on your MariaDB/MySQL server. Note that this database must be created before the TeamSpeak Server is started. Please use 'utf8mb4' character encoding for the database.
 
 ### TS3SERVER_DB_LOG_DAYS
 Default: 90
@@ -108,40 +125,33 @@ Default: 1
 
 Since: 3.0.0
 
--
+## Advanced
 
-### TS3SERVER_DB_NAME
-Default: test
+### TS3SERVER_CRASHDUMPS
+Default: crashdumps
 
-Since: 3.0.0
+Since: 3.6.0
 
-> The name of a database on your MariaDB/MySQL server. Note that this database must be created before the TeamSpeak Server is started. Please use 'utf8mb4' character encoding for the database.
+> When the server crashes, a crashdump is created that may be send to teamspeak to help fixing the crash. The location where the crashdumps are saved too, can be changed with this parameter. This feature is currently not supported on FreeBSD and Alpine versions of the TeamSpeak Server.
 
-### TS3SERVER_DB_PASSWORD
-Default:
-
-Since: 3.0.0
-
-> The password used to authenticate with your MariaDB/MySQL server.
-
-### TS3SERVER_DB_PLUGIN
-Default: ts3db_sqlite3
+### TS3SERVER_DB_CLEAR
+Default: 0
 
 Since: 3.0.0
 
-> Possible values: ts3db_sqlite3, ts3db_mariadb
+> If set to "1", the server database will be cleared before starting up the server. This is mainly used for testing. Usually this parameter should not be specified, so all server settings will be restored when the server process is restarted.
+
+### TS3SERVER_DB_CONNECTIONS
+Default: 10
+
+Since: 3.0.0
+
+> The number of database connections used by the server. Please note that changing this value can have an affect on your servers performance. Possible values are 2-100.
 
 ### TS3SERVER_DB_PLUGINPARAMETER
 Default: ts3db.ini
 
 Since: 3.0.0
-
-### TS3SERVER_DB_PORT
-Default: 3306
-
-Since: 3.0.0
-
-> The TCP port of your MariaDB/MySQL server.
 
 ### TS3SERVER_DB_SOCKET
 Default:
@@ -149,13 +159,6 @@ Default:
 Since: 3.0.0
 
 > The name of the Unix socket file to use, for connections made via a named pipe to a local server.
-
-### TS3SERVER_DB_SQL_CREATE_PATH
-Default: create_sqlite
-
-Since: 3.0.0
-
-> Possible values: create_sqlite, create_mariadb
 
 ### TS3SERVER_DB_SQL_PATH
 Default: sql
@@ -171,26 +174,10 @@ Since: 3.0.0
 
 > If set to '1', new permissions will not be added to existing groups automatically. Note that this can break your server configuration if you do not update them manually.
 
-### TS3SERVER_DB_USER
-Default: root
-
-Since: 3.0.0
-
-> The username used to authenticate with your MariaDB/MySQL server.
-
 ### TS3SERVER_DB_WAITUNTILREADY
 Default: 30
 
 Since: 3.1.0
-
-## Special
-
-### TS3SERVER_CRASHDUMPS
-Default: crashdumps
-
-Since: 3.6.0
-
-> When the server crashes, a crashdump is created that may be send to teamspeak to help fixing the crash. The location where the crashdumps are saved too, can be changed with this parameter. This feature is currently not supported on FreeBSD and Alpine versions of the TeamSpeak Server.
 
 ### TS3SERVER_FILETRANSFER_IP
 Default: 0.0.0.0
@@ -227,12 +214,26 @@ Since: 3.0.0
 
 > The physical path where the server will create logfiles.
 
+### TS3SERVER_LOG_QUERY_COMMANDS
+Default: 1
+
+Since: 3.0.0
+
+> If set to '1', the server will log every ServerQuery command executed by clients. This can be useful while trying to diagnose several different issues.
+
 ### TS3SERVER_MACHINE_ID
 Default:
 
 Since: 3.0.0
 
 > Optional name of this server process to identify a group of servers with the same ID. This can be useful when running multiple TeamSpeak Server instances on the same database. Please note that we strongly recommend that you do NOT run multiple server instances on the same SQLite database.
+
+### TS3SERVER_PRINT_ENV
+Default: false
+
+Since: 3.0.0
+
+> If set to 'true', shows the environment at the beginning.
 
 ### TS3SERVER_PROXY
 Default:
