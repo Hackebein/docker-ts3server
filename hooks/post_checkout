@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eu
+
+echo "[***] post_checkout is running"
+
+cd "$(dirname "$(readlink -f "$0")")"
+cd ..
+
+apt-get update
+apt-get install -y jq
+
+curl -L https://storage.googleapis.com/container-diff/latest/container-diff-linux-amd64 -o /usr/local/bin/container-diff
+chmod +x /usr/local/bin/container-diff
