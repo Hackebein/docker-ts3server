@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eu
+
+echo "[***] build is running"
+
+cd "$(dirname "$(readlink -f "$0")")"
+cd ..
+
+docker-compose build
+
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
