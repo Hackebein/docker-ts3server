@@ -9,11 +9,13 @@ cd ..
 DOCKER_REGISTRY=$(echo "${DOCKER_REPO}" | cut -d'/' -f1)
 DOCKER_REPO_RELATIVE=$(echo "${DOCKER_REPO}" | cut -d'/' -f2-)
 
-docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*" | while read IMAGE_NAME_RELATIVE; do
+docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*" | while read -r IMAGE_NAME_RELATIVE; do
 	IMAGE_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}
 	echo "[***] Push Image '${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}'"
-	changes=$(container-diff diff daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME} --type=file --json 2>/dev/null | jq '.[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | length')
-	if [[ "$changes" != "0" ]]; then
+	IMAGE_DIFFS=$(container-diff diff daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME} --type=file --json 2>/dev/null)
+	IMAGE_DIFFS_COUNT=$(echo "${IMAGE_DIFFS}" | jq '.[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | length')
+	if [[ "${IMAGE_DIFFS_COUNT}" != "0" ]]; then
+		echo "${IMAGE_DIFFS}"
 		docker push "${IMAGE_NAME}"
 	fi
 done
