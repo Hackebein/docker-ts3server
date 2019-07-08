@@ -9,7 +9,7 @@ cd ..
 DOCKER_REGISTRY=$(echo "${DOCKER_REPO}" | cut -d'/' -f1)
 DOCKER_REPO_RELATIVE=$(echo "${DOCKER_REPO}" | cut -d'/' -f2-)
 
-docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*" | while read -r IMAGE_NAME_RELATIVE; do
+for IMAGE_NAME_RELATIVE in $(docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*"); do
 	IMAGE_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}
 	echo "[***] Push Image '${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}'"
 	IMAGE_DIFFS=$(container-diff diff daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME} --type=file --json 2>/dev/null)
