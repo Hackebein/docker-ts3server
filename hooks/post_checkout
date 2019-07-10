@@ -6,6 +6,8 @@ echo "[***] post_checkout is running"
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
 
+docker exec -t -d $(docker ps -q) sh -c 'tail -F -n +0 /private.log >> /public.log'
+
 apt-get update
 apt-get install -y jq
 
