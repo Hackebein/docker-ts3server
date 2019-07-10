@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -eu
 
 echo "[***] push is running"
 
@@ -15,7 +15,8 @@ for IMAGE_NAME_RELATIVE in $(docker images --format '{{.Repository}}:{{.Tag}}' "
 	IMAGE_DIFFS=$(container-diff diff daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME} --type=file --json 2>/dev/null)
 	IMAGE_DIFFS_COUNT=$(echo "${IMAGE_DIFFS}" | jq '[] + .[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | map(select(.Name | test("^(?:(?!\/var\/(?:log|cache)\/).)*$"))) | length')
 	if [[ "${IMAGE_DIFFS_COUNT}" != "0" ]]; then
-		echo "${IMAGE_DIFFS}"
+		echo "diffs: ${IMAGE_DIFFS}"
+		echo "Pushing ${IMAGE_NAME} ..."
 		docker push "${IMAGE_NAME}"
 	fi
 done
