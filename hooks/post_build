@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-echo "[***] build is running"
+echo "[***] post_build is running"
 
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
