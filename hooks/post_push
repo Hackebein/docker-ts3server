@@ -1,9 +1,0 @@
-#!/bin/bash
-set -eux
-
-echo "[***] post_push is running"
-
-cd "$(dirname "$(readlink -f "$0")")"
-cd ..
-
-sleep 60
