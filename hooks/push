@@ -6,9 +6,6 @@ echo "[***] push is running"
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
 
-DOCKER_REGISTRY=$(echo "${DOCKER_REPO}" | cut -d'/' -f1)
-DOCKER_REPO_RELATIVE=$(echo "${DOCKER_REPO}" | cut -d'/' -f2-)
-
 for IMAGE_NAME_RELATIVE in $(docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*"); do
 	IMAGE_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}
 	echo "[***] Push Image '${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}'"
