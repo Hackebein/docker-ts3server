@@ -210,7 +210,7 @@ fi
 if [[ "${TS3SERVER_PATCH_ENABLE}" == "true" ]]; then
 	# Patch for disable badges
 	if [[ "${TS3SERVER_PATCH_BADGES_DISABLE}" == "true" ]]; then
-		sed -e 's/client_badges/client_BADGES/g' -i ts3server
+		sed -e 's/client_badges/client_BADGES/g' -e 's/client_signed_badges/client_signed_BADGES/g' -i ts3server
 	fi
 	# Patch for disable GDPR save database
 	if [[ "${TS3SERVER_PATCH_GDPR_SAVE}" == "true" ]]; then
