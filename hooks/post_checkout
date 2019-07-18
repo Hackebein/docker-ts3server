@@ -16,5 +16,5 @@ curl -sL https://storage.googleapis.com/container-diff/latest/container-diff-lin
 chmod +x /usr/local/bin/container-diff
 if [[ ! -f "${HOME}/.docker/config.json" ]]; then
     mkdir -p "${HOME}/.docker"
-    echo '{}' > "${HOME}/.docker/config.json"
+    echo '${DOCKERCFG}' | jq -M '.' > "${HOME}/.docker/config.json"
 fi
