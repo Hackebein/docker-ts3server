@@ -13,8 +13,8 @@ for IMAGE_NAME_RELATIVE in $(docker images --format '{{.Repository}}:{{.Tag}}' "
     IMAGE_DIFFS=$(container-diff diff -n daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME_RELATIVE} --type=file --json)
     IMAGE_DIFFS_COUNT=$(echo "${IMAGE_DIFFS}" | jq '[] + .[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | map(select(.Name | test("^(?:(?!\/var\/(?:log|cache)\/).)*$"))) | length')
     if [[ "${IMAGE_DIFFS_COUNT}" != "0" ]]; then
-        echo "[***] Found diff: $(echo "${IMAGE_DIFFS}" | jq -cM '.[0].Diff')"
+        echo "[***] Found diff: $(echo "${IMAGE_DIFFS}" | jq -cM '[] + .[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | map(select(.Name | test("^(?:(?!\/var\/(?:log|cache)\/).)*$")))')"
         echo "[***] Pushing ${IMAGE_NAME_RELATIVE} ..."
-        docker push "${IMAGE_NAME_RELATIVE}"
+        docker push "${IMAGE_NAME}"
     fi
 done
