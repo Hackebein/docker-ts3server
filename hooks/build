@@ -5,5 +5,7 @@ echo "[***] build is running"
 
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
+. "hooks/env"
 
+echo "[***] build docker compose file"
 docker-compose build

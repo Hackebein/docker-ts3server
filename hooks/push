@@ -5,15 +5,16 @@ echo "[***] push is running"
 
 cd "$(dirname "$(readlink -f "$0")")"
 cd ..
+. "hooks/env"
 
 for IMAGE_NAME_RELATIVE in $(docker images --format '{{.Repository}}:{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*"); do
-	IMAGE_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}
-	echo "[***] Push Image '${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}'"
-	IMAGE_DIFFS=$(container-diff diff daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME} --type=file --json 2>/dev/null; exit 0)
-	IMAGE_DIFFS_COUNT=$(echo "${IMAGE_DIFFS}" | jq '[] + .[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | map(select(.Name | test("^(?:(?!\/var\/(?:log|cache)\/).)*$"))) | length')
-	if [[ "${IMAGE_DIFFS_COUNT}" != "0" ]]; then
-		echo "diffs: ${IMAGE_DIFFS}"
-		echo "Pushing ${IMAGE_NAME} ..."
-		docker push "${IMAGE_NAME}"
-	fi
+    IMAGE_NAME=${DOCKER_REGISTRY}/${IMAGE_NAME_RELATIVE}
+    echo "[***] Compare ${IMAGE_NAME_RELATIVE} images ..."
+    IMAGE_DIFFS=$(container-diff diff -n daemon://${IMAGE_NAME_RELATIVE} remote://${IMAGE_NAME_RELATIVE} --type=file --json)
+    IMAGE_DIFFS_COUNT=$(echo "${IMAGE_DIFFS}" | jq '[] + .[0].Diff.Adds + .[0].Diff.Dels + .[0].Diff.Mods | map(select(.Name | test("^(?:(?!\/var\/(?:log|cache)\/).)*$"))) | length')
+    if [[ "${IMAGE_DIFFS_COUNT}" != "0" ]]; then
+        echo "[***] Found diff: $(echo "${IMAGE_DIFFS}" | jq -cM)"
+        echo "[***] Pushing ${IMAGE_NAME_RELATIVE} ..."
+        docker push "${IMAGE_NAME_RELATIVE}"
+    fi
 done
