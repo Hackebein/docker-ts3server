@@ -14,9 +14,3 @@ apt-get install -y jq
 echo "[***] Install container-diff"
 curl -sL https://storage.googleapis.com/container-diff/latest/container-diff-linux-amd64 -o /usr/local/bin/container-diff
 chmod +x /usr/local/bin/container-diff
-
-echo "[***] Setup docker config"
-if [[ ! -f "${HOME}/.docker/config.json" ]]; then
-    mkdir -p "${HOME}/.docker"
-    echo "${DOCKERCFG}" | jq -M '.' > "${HOME}/.docker/config.json"
-fi
