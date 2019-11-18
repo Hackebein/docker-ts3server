@@ -28,9 +28,9 @@ RUN apt update \
         /var/lib/apt/lists/*
 ARG TS3SERVER_VERSION
 ENV TS3SERVER_VERSION="$TS3SERVER_VERSION" \
-        LD_LIBRARY_PATH=".:./redist" \
-        LANG="C.UTF-8" \
-        LC_ALL="C.UTF-8"
+    LD_LIBRARY_PATH=".:./redist" \
+    LANG="C.UTF-8" \
+    LC_ALL="C.UTF-8"
 COPY --from=base /app /app
 WORKDIR /app
 EXPOSE 9987/udp 30033 10011 10022
