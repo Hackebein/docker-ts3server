@@ -27,7 +27,7 @@ RUN apk add --update --no-cache \
  && apk upgrade --update --no-cache
 ARG TS3SERVER_VERSION
 ENV TS3SERVER_VERSION="$TS3SERVER_VERSION" \
-    LD_LIBRARY_PATH=".:./redist"
+        LD_LIBRARY_PATH=".:./redist"
 COPY --from=base /app /app
 WORKDIR /app
 EXPOSE 9987/udp 30033 10011 10022
