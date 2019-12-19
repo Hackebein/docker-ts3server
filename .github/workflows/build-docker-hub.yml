@@ -1,6 +1,9 @@
 name: "Trigger build at Docker Hub"
 
 on:
+  push:
+    branches:
+    - master
   schedule:
     - cron: "0 4 * * *"
 
