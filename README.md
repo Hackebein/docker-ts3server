@@ -21,7 +21,7 @@ docker run \
 ### TS3SERVER_LICENSE
 Default: view
 
-Since: 3.0.0
+Since: 3.1.0
 
 > if set to "accept", the server will assume you have read and accepted the license it comes with. If this is set to "view", the ts3server will not start.
 
@@ -121,7 +121,7 @@ Since: 3.0.0
 > Defines how many days to keep database log entries. Auto-pruning is triggered on every start and on every new month while the server is running.
 
 ### TS3SERVER_DB_LOGGING_DISBALE
-Default: 1
+Default: 1/true
 
 Since: 3.0.0
 
@@ -135,11 +135,11 @@ Since: 3.6.0
 > When the server crashes, a crashdump is created that may be send to teamspeak to help fixing the crash. The location where the crashdumps are saved too, can be changed with this parameter. This feature is currently not supported on FreeBSD and Alpine versions of the TeamSpeak Server.
 
 ### TS3SERVER_DB_CLEAR
-Default: 0
+Default: 0/false
 
 Since: 3.0.0
 
-> If set to "1", the server database will be cleared before starting up the server. This is mainly used for testing. Usually this parameter should not be specified, so all server settings will be restored when the server process is restarted.
+> If set to "1/true", the server database will be cleared before starting up the server. This is mainly used for testing. Usually this parameter should not be specified, so all server settings will be restored when the server process is restarted.
 
 ### TS3SERVER_DB_CONNECTIONS
 Default: 10
@@ -168,11 +168,11 @@ Since: 3.0.0
 > The physical path where your SQL script files are located.
 
 ### TS3SERVER_DB_UPDATE_DISABLE
-Default: 0
+Default: 0/false
 
 Since: 3.0.0
 
-> If set to '1', new permissions will not be added to existing groups automatically. Note that this can break your server configuration if you do not update them manually.
+> If set to '1/true', new permissions will not be added to existing groups automatically. Note that this can break your server configuration if you do not update them manually.
 
 ### TS3SERVER_DB_WAITUNTILREADY
 Default: 30
@@ -185,6 +185,11 @@ Default: 0.0.0.0
 Since: 3.0.0
 
 > Comma separated IP list which the file transfers are bound to.
+
+### TS3SERVER_HINTS
+Default: 0/false
+
+Since: 3.10.0
 
 ### TS3SERVER_FILETRANSFER_PORT
 Default: 30033
@@ -201,11 +206,11 @@ Since: 3.0.0
 The physical path where your license file is located.
 
 ### TS3SERVER_LOG_APPEND
-Default: 0
+Default: 0/false
 
 Since: 3.0.1
 
-> If set to '1', the server will not create a new logfile on every start. Instead, the log output will be appended to the previous logfile. The logfile name will only contain the ID of the virtual server.
+> If set to '1/true', the server will not create a new logfile on every start. Instead, the log output will be appended to the previous logfile. The logfile name will only contain the ID of the virtual server.
 
 ### TS3SERVER_LOG_PATH
 Default: logs
@@ -215,11 +220,11 @@ Since: 3.0.0
 > The physical path where the server will create logfiles.
 
 ### TS3SERVER_LOG_QUERY_COMMANDS
-Default: 1
+Default: 1/true
 
 Since: 3.0.0
 
-> If set to '1', the server will log every ServerQuery command executed by clients. This can be useful while trying to diagnose several different issues.
+> If set to '1/true', the server will log every ServerQuery command executed by clients. This can be useful while trying to diagnose several different issues.
 
 ### TS3SERVER_MACHINE_ID
 Default:
@@ -253,11 +258,11 @@ Default: query_ip_blacklist.txt
 Since: 3.0.0
 
 ### TS3SERVER_QUERY_BRUTFORCECHECK_DISABLE
-Default: 0
+Default: 0/false
 
 Since: 3.0.8
 
-> If set to "1", the server will skip and bruteforce protection for whitelisted Ip addresses for the ServerQuery interface.
+> If set to '1/true', the server will skip and bruteforce protection for whitelisted Ip addresses for the ServerQuery interface.
 
 ### TS3SERVER_QUERY_BUFFER
 Default: 20
@@ -272,6 +277,36 @@ Default: serverquerydocs/
 Since: 3.3.0
 
 > Physical location where the server is looking for the documents used for the help command in ServerQuery.
+
+### TS3SERVER_QUERY_HTTP_ENABLE
+Default: false
+
+Since: 3.12.0
+
+### TS3SERVER_QUERY_HTTP_IP
+Default: 0.0.0.0
+
+Since: 3.12.0
+
+### TS3SERVER_QUERY_HTTP_PORT
+Default: 10080
+
+Since: 3.12.0
+
+### TS3SERVER_QUERY_HTTPS_ENABLE
+Default: false
+
+Since: 3.12.0
+
+### TS3SERVER_QUERY_HTTPS_IP
+Default: 0.0.0.0
+
+Since: 3.12.0
+
+### TS3SERVER_QUERY_HTTPS_PORT
+Default: 10443
+
+Since: 3.12.0
 
 ### TS3SERVER_QUERY_RAW_ENABLE
 Default: true
@@ -310,17 +345,22 @@ Since: 3.3.0
 
 > The physical path to the ssh_host_rsa_key to be used by query. If it does not exist, it will be created when the server is starting up.
 
+### TS3SERVER_QUERY_TIMEOUT
+Default: 300
+
+Since: 3.3.0
+
 ### TS3SERVER_QUERY_WHITELIST
 Default: query_ip_whitelist.txt
 
 Since: 3.0.0
 
 ### TS3SERVER_VOICE_DEFAULT_CREATE
-Default: 1
+Default: 1/true
 
 Since: 3.0.0
 
-> Normally one virtual server is created automatically when the TeamSpeak Server process is started. To disable this behavior, set this parameter to '0'. In this case you have to start virtual servers manually using the ServerQuery interface.
+> Normally one virtual server is created automatically when the TeamSpeak Server process is started. To disable this behavior, set this parameter to '0/false'. In this case you have to start virtual servers manually using the ServerQuery interface.
 
 ### TS3SERVER_VOICE_DEFAULT_PORT
 Default: 9987

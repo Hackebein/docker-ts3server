@@ -56,8 +56,24 @@ trailingslash () {
 	fi
 }
 
+boolToInt () {
+	if [[ $1 == "1" || $1 =~ ^[tT][rR][uU][eE]$ ]]; then
+		echo 1
+	else
+		echo 0
+	fi
+}
+
+intToBool () {
+	if [[ "$(boolToInt $1)" == "1" ]]; then
+		echo true
+	else
+		echo false
+	fi
+}
+
 _sig () {
-	if [[ -n "${PID:-}" ]]; then
+	if [[ -n "$(ps -p $PID -o pid= 2>/dev/null)" ]]; then
 		export SIG=$1
 		SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
 		echo "Caught ${SIG} signal!"
@@ -114,7 +130,9 @@ export TS3SERVER_DB_WAITUNTILREADY=${TS3SERVER_DB_WAITUNTILREADY:-30}
 export TS3SERVER_FILETRANSFER_IP=${TS3SERVER_FILETRANSFER_IP:-0.0.0.0}
 # since 3.0.0
 export TS3SERVER_FILETRANSFER_PORT=${TS3SERVER_FILETRANSFER_PORT:-30033}
-# since 3.x.x
+# since 3.10.0
+export TS3SERVER_HINTS=${TS3SERVER_HINTS:-1}
+# since 3.1.0
 export TS3SERVER_LICENSE=${TS3SERVER_LICENSE:-view}
 # since 3.0.0
 export TS3SERVER_LICENSE_PATH=${TS3SERVER_LICENSEPATH:-}
@@ -144,6 +162,18 @@ export TS3SERVER_QUERY_BRUTFORCECHECK_DISABLE=${TS3SERVER_QUERY_BRUTFORCECHECK_D
 export TS3SERVER_QUERY_BUFFER=${TS3SERVER_QUERY_BUFFER:-20}
 # since 3.3.0
 export TS3SERVER_QUERY_DOCS_PATH=${TS3SERVER_QUERY_DOCS_PATH:-serverquerydocs/}
+# since 3.12.0
+export TS3SERVER_QUERY_HTTP_ENABLE=${TS3SERVER_QUERY_HTTP_ENABLE:-false}
+# since 3.12.0
+export TS3SERVER_QUERY_HTTP_IP=${TS3SERVER_QUERY_HTTP_IP:-0.0.0.0}
+# since 3.12.0
+export TS3SERVER_QUERY_HTTP_PORT=${TS3SERVER_QUERY_HTTP_PORT:-10080}
+# since 3.12.0
+export TS3SERVER_QUERY_HTTPS_ENABLE=${TS3SERVER_QUERY_HTTPS_ENABLE:-false}
+# since 3.12.0
+export TS3SERVER_QUERY_HTTPS_IP=${TS3SERVER_QUERY_HTTPS_IP:-0.0.0.0}
+# since 3.12.0
+export TS3SERVER_QUERY_HTTPS_PORT=${TS3SERVER_QUERY_HTTPS_PORT:-10443}
 # since 3.0.0
 export TS3SERVER_QUERY_PASSWORD=${TS3SERVER_QUERY_PASSWORD:-}
 # since 3.3.0
@@ -160,6 +190,8 @@ export TS3SERVER_QUERY_SSH_IP=${TS3SERVER_QUERY_SSH_IP:-0.0.0.0}
 export TS3SERVER_QUERY_SSH_PORT=${TS3SERVER_QUERY_SSH_PORT:-10022}
 # since 3.3.0
 export TS3SERVER_QUERY_SSH_RSA_HOST_KEY=${TS3SERVER_QUERY_SSH_RSA_HOST_KEY:-ssh_host_rsa_key}
+# since 3.3.0
+export TS3SERVER_QUERY_TIMEOUT=${TS3SERVER_QUERY_TIMEOUT:-300}
 # since 3.0.0
 export TS3SERVER_QUERY_WHITELIST=${TS3SERVER_QUERY_WHITELIST:-query_ip_whitelist.txt}
 # since 3.0.0
@@ -178,6 +210,21 @@ TS3SERVER_DB_SQL_CREATE_PATH=$(trailingslash "${TS3SERVER_DB_SQL_CREATE_PATH}")
 TS3SERVER_DB_SQL_PATH=$(trailingslash "${TS3SERVER_DB_SQL_PATH}")
 TS3SERVER_LOG_PATH=$(trailingslash "${TS3SERVER_LOG_PATH}")
 TS3SERVER_QUERY_DOCS_PATH=$(trailingslash "${TS3SERVER_QUERY_DOCS_PATH}")
+TS3SERVER_DB_CLEAR=$(intToBool "${TS3SERVER_DB_CLEAR}")
+TS3SERVER_DB_LOGGING_DISBALE=$(intToBool "${TS3SERVER_DB_LOGGING_DISBALE}")
+TS3SERVER_DB_UPDATE_DISABLE=$(intToBool "${TS3SERVER_DB_UPDATE_DISABLE}")
+TS3SERVER_HINTS=$(intToBool "${TS3SERVER_HINTS}")
+TS3SERVER_LOG_APPEND=$(intToBool "${TS3SERVER_LOG_APPEND}")
+TS3SERVER_LOG_QUERY_COMMANDS=$(intToBool "${TS3SERVER_LOG_QUERY_COMMANDS}")
+TS3SERVER_QUERY_BRUTFORCECHECK_DISABLE=$(intToBool "${TS3SERVER_QUERY_BRUTFORCECHECK_DISABLE}")
+TS3SERVER_VOICE_DEFAULT_CREATE=$(intToBool "${TS3SERVER_VOICE_DEFAULT_CREATE}")
+TS3SERVER_PATCH_BADGES_DISABLE=$(intToBool "${TS3SERVER_PATCH_BADGES_DISABLE}")
+TS3SERVER_PATCH_ENABLE=$(intToBool "${TS3SERVER_PATCH_ENABLE}")
+TS3SERVER_PATCH_GDPR_SAVE=$(intToBool "${TS3SERVER_PATCH_GDPR_SAVE}")
+TS3SERVER_PRINT_ENV=$(intToBool "${TS3SERVER_PRINT_ENV}")
+TS3SERVER_QUERY_HTTP_ENABLE=$(intToBool "${TS3SERVER_QUERY_HTTP_ENABLE}")
+TS3SERVER_QUERY_HTTPS_ENABLE=$(intToBool "${TS3SERVER_QUERY_HTTPS_ENABLE}")
+TS3SERVER_QUERY_SSH_ENABLE=$(intToBool "${TS3SERVER_QUERY_SSH_ENABLE}")
 if [[ ${TS3SERVER_SUPPORT_BADGE} != true ]]; then
 	TS3SERVER_PATCH_BADGES_DISABLE=false
 fi
@@ -188,16 +235,20 @@ fi
 if [[ ! ${TS3SERVER_QUERY_BUFFER} -ge 1 || ! ${TS3SERVER_QUERY_BUFFER} -le 20 ]]; then
 	TS3SERVER_QUERY_BUFFER=20
 fi
-if [[ "${TS3SERVER_QUERY_RAW_ENABLE}" == "true" &&  "${TS3SERVER_QUERY_SSH_ENABLE}" == "true" ]]; then
-	TS3SERVER_QUERY_PROTOCOLS=raw,ssh
-else
-	if [[ "${TS3SERVER_QUERY_RAW_ENABLE}" == "true" ]]; then
-		TS3SERVER_QUERY_PROTOCOLS=raw
-	fi
-	if [[ "${TS3SERVER_QUERY_SSH_ENABLE}" == "true" ]]; then
-		TS3SERVER_QUERY_PROTOCOLS=ssh
-	fi
+TS3SERVER_QUERY_PROTOCOLS=()
+if [[ "${TS3SERVER_QUERY_HTTP_ENABLE}" == "true" ]]; then
+	TS3SERVER_QUERY_PROTOCOLS+=("http")
 fi
+if [[ "${TS3SERVER_QUERY_HTTPS_ENABLE}" == "true" ]]; then
+	TS3SERVER_QUERY_PROTOCOLS+=("https")
+fi
+if [[ "${TS3SERVER_QUERY_RAW_ENABLE}" == "true" ]]; then
+	TS3SERVER_QUERY_PROTOCOLS+=("raw")
+fi
+if [[ "${TS3SERVER_QUERY_SSH_ENABLE}" == "true" ]]; then
+	TS3SERVER_QUERY_PROTOCOLS+=("ssh")
+fi
+TS3SERVER_QUERY_PROTOCOLS=$(IFS=,; echo "${TS3SERVER_QUERY_PROTOCOLS[*]}")
 
 # environment printing
 if [[ "${TS3SERVER_PRINT_ENV}" == "true" ]]; then
@@ -205,6 +256,15 @@ if [[ "${TS3SERVER_PRINT_ENV}" == "true" ]]; then
 	printenv | grep '^TS3SERVER_' | grep -v 'PASSWORD' | sort
 	echo ---
 fi
+
+TS3SERVER_DB_CLEAR=$(boolToInt "${TS3SERVER_DB_CLEAR}")
+TS3SERVER_DB_LOGGING_DISBALE=$(boolToInt "${TS3SERVER_DB_LOGGING_DISBALE}")
+TS3SERVER_DB_UPDATE_DISABLE=$(boolToInt "${TS3SERVER_DB_UPDATE_DISABLE}")
+TS3SERVER_HINTS=$(boolToInt "${TS3SERVER_HINTS}")
+TS3SERVER_LOG_APPEND=$(boolToInt "${TS3SERVER_LOG_APPEND}")
+TS3SERVER_LOG_QUERY_COMMANDS=$(boolToInt "${TS3SERVER_LOG_QUERY_COMMANDS}")
+TS3SERVER_QUERY_BRUTFORCECHECK_DISABLE=$(boolToInt "${TS3SERVER_QUERY_BRUTFORCECHECK_DISABLE}")
+TS3SERVER_VOICE_DEFAULT_CREATE=$(boolToInt "${TS3SERVER_VOICE_DEFAULT_CREATE}")
 
 # patches
 if [[ "${TS3SERVER_PATCH_ENABLE}" == "true" ]]; then
@@ -225,6 +285,7 @@ create_default_virtualserver=${TS3SERVER_VOICE_DEFAULT_CREATE}
 machine_id=${TS3SERVER_MACHINE_ID}
 filetransfer_port=${TS3SERVER_FILETRANSFER_PORT}
 filetransfer_ip=${TS3SERVER_FILETRANSFER_IP}
+query_timeout=${TS3SERVER_QUERY_TIMEOUT}
 query_port=${TS3SERVER_QUERY_RAW_PORT}
 query_ip=${TS3SERVER_QUERY_RAW_IP}
 clear_database=${TS3SERVER_DB_CLEAR}
@@ -252,8 +313,14 @@ query_protocols=${TS3SERVER_QUERY_PROTOCOLS}
 query_ssh_ip=${TS3SERVER_QUERY_SSH_IP}
 query_ssh_port=${TS3SERVER_QUERY_SSH_PORT}
 query_ssh_rsa_host_key=${TS3SERVER_QUERY_SSH_RSA_HOST_KEY}
+query_http_ip=${TS3SERVER_QUERY_HTTP_IP}
+query_http_port=${TS3SERVER_QUERY_HTTP_PORT}
+query_https_ip=${TS3SERVER_QUERY_HTTPS_IP}
+query_https_port=${TS3SERVER_QUERY_HTTPS_PORT}
 crashdumps_path=${TS3SERVER_CRASHDUMPS}
+hints_enabled=${TS3SERVER_HINTS}
 EOF
+
 cat <<- EOF >/app/ts3db.ini
 [config]
 host='${TS3SERVER_DB_HOST}'
@@ -271,16 +338,20 @@ if [ -n "${TS3SERVER_QUERY_PASSWORD}" ]; then
 	set -- "$@" serveradmin_password=${TS3SERVER_QUERY_PASSWORD}
 fi
 
+# execution
+if [[ "$(vercompare ${TS3SERVER_VERSION} '<' '3.0.12')" == "true" ]]; then
+	./ts3server_${TS3SERVER_PLATFORM} "$@" &
+else
+	./ts3server "$@" &
+fi
+export PID=$!
+
 # register traps
 IFS=' ' read -r -a singals <<< $(kill -l | sed -e 's/[0-9]\+)//g' | tr -d '\t\r\n')
 for SIG in "${singals[@]}"; do
 	SIG_SHORT=$(echo ${SIG} | sed -e 's/^SIG//g')
-	echo "Register ${SIG} event"
+	#echo "Register ${SIG} event"
 	eval "trap '_sig ${SIG}' ${SIG_SHORT}"
 done
-
-# execution
-./ts3server "$@" &
-export PID=$!
 
 wait "${PID}"

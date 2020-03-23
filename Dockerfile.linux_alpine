@@ -8,13 +8,13 @@ ARG TS3SERVER_ARCHIVE
 RUN wget --no-verbose "${TS3SERVER_URL}" -O "/tmp/${TS3SERVER_ARCHIVE}" \
  && tar -C /app --strip 1 -xf "/tmp/${TS3SERVER_ARCHIVE}"
 COPY build_linux /app
-RUN chmod ug+x /app/ts3server_startscript.sh \
+RUN chmod ug+x /app/start.sh \
  && rm -rf \
         /app/CHANGELOG \
         /app/doc \
         /app/docs \
         /app/tsdns \
-        /app/ts3server_minimal_runscript.sh
+        /app/ts3server_*.sh
 
 FROM alpine:latest
 MAINTAINER Lars Olzem <hackebein@gmail.com>
@@ -24,11 +24,13 @@ RUN apk add --update --no-cache \
         ca-certificates \
         busybox-extras \
         expect \
+        procps \
  && apk upgrade --update --no-cache
 ARG TS3SERVER_VERSION
 ENV TS3SERVER_VERSION="$TS3SERVER_VERSION" \
+    TS3SERVER_PLATFORM="linux_alpine" \
     LD_LIBRARY_PATH=".:./redist"
 COPY --from=base /app /app
 WORKDIR /app
 EXPOSE 9987/udp 30033 10011 10022
-ENTRYPOINT ["/app/ts3server_startscript.sh"]
+ENTRYPOINT ["/app/start.sh"]
