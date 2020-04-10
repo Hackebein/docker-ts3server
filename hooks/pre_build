@@ -7,6 +7,6 @@ cd "$(dirname "$(readlink -f "$0")")"
 cd ..
 . "hooks/env"
 
-echo "[***] Generate docker compose file" 
+echo "[***] Generate docker compose file"
 touch "$(pwd)/docker-compose.yml"
 docker run --rm -v "$(pwd)/docker-compose.yml:/usr/src/app/docker-compose.yml" hackebein/docker-compose-builder-ts3server "${DOCKER_REPO_RELATIVE}" "." "linux_alpine" "linux_amd64"
