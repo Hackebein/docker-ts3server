@@ -9,30 +9,22 @@ jobs:
   checkout:
     runs-on: ubuntu-20.04
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: env
-        run: env
-  build_docker-compose-file:
-    needs: [checkout]
-    runs-on: ubuntu-20.04
-    steps:
-      - name: install node
+      - name: Install node
         uses: actions/setup-node@v1
         with:
           node-version: '8' # TODO: update to 14 (LTS)
-      - run: cd docker-compose_builder
-      - name: install npm packages
+      - name: Change directoy to docker-compose_builder
+        run: cd docker-compose_builder
+      - name: Install npm packages
         run: npm install
-      - name: build
+      - name: Build docker-compose.yml
         # TODO: do all possible containers
         # run: npm start "../docker-compose.yml" "${{ github.repository }}" "." "freebsd_amd64" "freebsd_x86" "linux_alpine" "linux_amd64" "linux_x86" "mac" "win32" "win64"
         run: npm start "../docker-compose.yml" "${{ github.repository }}" "." "linux_alpine" "linux_amd64"
-  build_containers:
-    needs: [checkout, build_docker-compose-file]
-    runs-on: ubuntu-20.04
-    steps:
-      - name: build
+      - name: Change directoy to to repository root
+        run: cd ..
+      - name: Build container images
         run: docker-compose build
-      - name: remove untagged images
-        run: docker rmi $(docker images | grep '^<none>' | awk '{print $3}')
+      - name: Remove untagged container images
