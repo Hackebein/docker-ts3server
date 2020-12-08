@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: "0 4 * * *"
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
