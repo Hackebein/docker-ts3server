@@ -1,0 +1,25 @@
+{
+  "name": "docker-compose-ts3server-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --no-deprecation index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackebein/docker-compose-builder-ts3server.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "crawler": "github:bda-research/node-crawler#9b77f9a",
+    "escape-string-regexp": "^1.0.5",
+    "js-yaml": "^3.13.1",
+    "logger": "0.0.1",
+    "print": "^1.1.0",
+    "underscore": "^1.10.2",
+    "url": "^0.11.0"
+  }
+}

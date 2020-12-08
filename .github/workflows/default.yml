@@ -1,0 +1,38 @@
+name: "default"
+on:
+  push:
+    branches:
+    - master
+  schedule:
+    - cron: "0 4 * * *"
+jobs:
+  checkout:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: env
+        run: env
+  build_docker-compose-file:
+    needs: [checkout]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '8' # TODO: update to 14 (LTS)
+      - run: cd docker-compose_builder
+      - name: install npm packages
+        run: npm install
+      - name: build
+        # TODO: do all possible containers
+        # run: npm start "../docker-compose.yml" "${{ GITHUB_REPOSITORY }}" "." "freebsd_amd64" "freebsd_x86" "linux_alpine" "linux_amd64" "linux_x86" "mac" "win32" "win64"
+        run: npm start "../docker-compose.yml" "${{ GITHUB_REPOSITORY }}" "." "linux_alpine" "linux_amd64"
+  build_containers:
+    needs: [checkout, build_docker-compose-file]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: build
+        run: docker-compose build
+      - name: remove untagged images
+        run: docker rmi $(docker images | grep '^<none>' | awk '{print $3}')
