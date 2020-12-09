@@ -17,7 +17,7 @@ const file = process.argv.shift();
 const output = process.argv.shift();
 const repo = process.argv.shift();
 const context = process.argv.shift();
-const archs = process.argv;
+const oses = process.argv;
 
 let releases = [];
 let services = {};
@@ -100,20 +100,31 @@ let crawler = new Crawler({
                                     release.stage = release.stage.replace('-', '').replace('.', '').toLowerCase();
                                 }
                                 //release.versionParts = _.object(['major', 'minor', 'maintenance', 'build'], release.version.split('.'));
-                                release.platform = RegExServerFilename.exec(filename)[1].replace('-', '_');
+                                release.os = RegExServerFilename.exec(filename)[1].replace('-', '_');
+                                //"freebsd_amd64", "freebsd_x86", "linux_alpine", "linux_amd64", "linux_x86", "mac", "win32", "win64"
+                                release.platform = release.os
+                                    .replace('freebsd_amd64', 'linux/amd64')
+                                    .replace('freebsd_x86', 'linux/386')
+                                    .replace('linux_alpine', 'linux/amd64')
+                                    .replace('linux_amd64', 'linux/amd64')
+                                    .replace('linux_x86', 'linux/386')
+                                    .replace('mac', 'osx')
+                                    .replace('win32', 'windows/386')
+                                    .replace('win64', 'windows/amd64')
+                                    .replace('_', '/');
                                 release.mirror = res.request.uri;
                                 release.name = release.version;
                                 if(_.isString(release.stage)) {
                                     release.name += '-' + release.stage;
                                 }
-                                release.name += '-' + release.platform;
+                                release.name += '-' + release.os;
                                 release.tags = [
                                     release.name,
                                 ];
-                                if(_.contains(archs, release.platform)) {
+                                if(_.contains(oses, release.os)) {
                                     releases.push(release);
                                 } else {
-                                    log.info('Unsupported platform ' + release.platform);
+                                    log.info('Unsupported os ' + release.os);
                                 }
                             } else {
                                 log.error('Unexpected filename ' + filename);
@@ -166,35 +177,35 @@ crawler.on('drain', () => {
     releases = _.chain(releases)
         .groupBy('name')
         .map(mirrors => _.chain(mirrors).first().omit('mirror').extend({mirrors: _.map(mirrors, 'mirror')}).value())
-        .sortBy(release => release.version.replace(/\d+/g, n => +n+1000) + (_.isUndefined(release.stage) ? '0' : '1') + release.platform + (_.isUndefined(release.stage) ? '' : release.stage))
+        .sortBy(release => release.version.replace(/\d+/g, n => +n+1000) + (_.isUndefined(release.stage) ? '0' : '1') + release.os + (_.isUndefined(release.stage) ? '' : release.stage))
         .value();
     _.chain(releases).map('version').uniq().each((version) => {
         let lastIndex = -1;
-        _.chain(archs).each((platform) => {
+        _.chain(oses).each((os) => {
             if(lastIndex == -1) {
-                lastIndex = _.findLastIndex(releases, release => release.platform === platform && release.version === version && _.isUndefined(release.stage));
+                lastIndex = _.findLastIndex(releases, release => release.os === os && release.version === version && _.isUndefined(release.stage));
             }
         });
         if(lastIndex >= 0) {
             releases[lastIndex].tags.push(version);
         }
     });
-    _.each(archs, (platform) => {
-        let lastIndex = _.findLastIndex(releases, release => release.platform === platform && !_.isUndefined(release.stage));
+    _.each(oses, (os) => {
+        let lastIndex = _.findLastIndex(releases, release => release.os === os && !_.isUndefined(release.stage));
         if(lastIndex >= 0) {
-            releases[lastIndex].tags.push('latest-pre-' + platform);
+            releases[lastIndex].tags.push('latest-pre-' + os);
         }
     });
-    _.each(archs, (platform) => {
-        let lastIndex = _.findLastIndex(releases, release => release.platform === platform && _.isUndefined(release.stage));
+    _.each(oses, (os) => {
+        let lastIndex = _.findLastIndex(releases, release => release.os === os && _.isUndefined(release.stage));
         if(lastIndex >= 0) {
-            releases[lastIndex].tags.push('latest-' + platform);
+            releases[lastIndex].tags.push('latest-' + os);
         }
     });
     let lastIndex = -1;
-    _.chain(archs).each((platform) => {
+    _.chain(oses).each((os) => {
         if(lastIndex == -1) {
-            lastIndex = _.findLastIndex(releases, release => release.platform === platform && _.isUndefined(release.stage));
+            lastIndex = _.findLastIndex(releases, release => release.os === os && _.isUndefined(release.stage));
         }
     });
     if(lastIndex >= 0) {
@@ -208,13 +219,14 @@ crawler.on('drain', () => {
                     image: repo + ':' + tag,
                     build: {
                         context: context,
-                        dockerfile: 'Dockerfile.' + release.platform,
+                        dockerfile: 'Dockerfile.' + release.os,
                         args: {
                             TS3SERVER_VERSION: release.version,
                             TS3SERVER_URL: mirror.href,
                             TS3SERVER_ARCHIVE: mirror.path.split('/').pop(),
                         },
                     },
+                    platform: release.platform,
                 };
             } else {
                 services[tag] = {
@@ -225,7 +237,7 @@ crawler.on('drain', () => {
         });
     });
     fs.writeFile(output, yaml.dump({
-        version: '2.0',
+        version: '2.4',
         services: services,
     }), (err) => {
         if(err) {
