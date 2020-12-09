@@ -28,3 +28,5 @@ jobs:
       - name: Build container images
         run: docker-compose build
       - name: Remove untagged container images
+        run: "docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
+
