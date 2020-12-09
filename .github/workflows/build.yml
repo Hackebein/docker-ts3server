@@ -15,16 +15,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '8' # TODO: update to 14 (LTS)
-      - name: Change directoy to docker-compose_builder
-        run: cd docker-compose_builder
       - name: Install npm packages
-        run: npm install
+        run: npm install --prefix docker-compose_builder
       - name: Build docker-compose.yml
         # TODO: do all possible containers
         # run: npm start "../docker-compose.yml" "${{ github.repository }}" "." "freebsd_amd64" "freebsd_x86" "linux_alpine" "linux_amd64" "linux_x86" "mac" "win32" "win64"
-        run: npm start "../docker-compose.yml" "${{ github.repository }}" "." "linux_alpine" "linux_amd64"
-      - name: Change directoy to to repository root
-        run: cd ..
+        run: npm start --prefix docker-compose_builder "../docker-compose.yml" "${{ github.repository }}" "." "linux_alpine" "linux_amd64"
       - name: Build container images
         run: docker-compose build
       - name: Remove untagged container images
