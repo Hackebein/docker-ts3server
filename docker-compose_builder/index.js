@@ -8,7 +8,7 @@ const _ = require('underscore');
 
 const log = new Logger();
 //log.setLevel('fatal');
-log..format = function(level, date, message) {
+log.format = function(level, date, message) {
     return ['[', level, '] ', message].join('');
 };
 
