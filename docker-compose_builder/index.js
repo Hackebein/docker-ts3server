@@ -18,7 +18,7 @@ const RegExServerFilename = /teamspeak3-server_([0-9a-z_-]+)-(3(?:\.[0-9]+)+)(?:
 const binary = process.argv.shift();
 const file = process.argv.shift();
 const output = process.argv.shift();
-const repo = process.argv.shift();
+const repo = process.argv.shift().toLowerCase();
 const context = process.argv.shift();
 const oses = process.argv;
 
