@@ -27,8 +27,8 @@ jobs:
         run: "docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
       - name: Install container-diff
         run: |
-          curl -sL https://storage.googleapis.com/container-diff/latest/container-diff-linux-amd64 -o /usr/local/bin/container-diff
-          chmod +x /usr/local/bin/container-diff
+          sudo curl -sL https://storage.googleapis.com/container-diff/latest/container-diff-linux-amd64 -o /usr/local/bin/container-diff
+          sudo chmod +x /usr/local/bin/container-diff
       - name: Publish changed Images
         run: |
           DOCKER_REPO_RELATIVE=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
