@@ -19,8 +19,8 @@ jobs:
         run: npm install --prefix docker-compose_builder
       - name: Build docker-compose.yml
         # TODO: do all possible containers
-        # run: npm start "../docker-compose.yml" "${{ github.repository }}" "." "freebsd_amd64" "freebsd_x86" "linux_alpine" "linux_amd64" "linux_x86" "mac" "win32" "win64"
-        run: npm start --prefix docker-compose_builder "../docker-compose.yml" "${{ github.repository }}" "." "linux_alpine" "linux_amd64"
+        # run: npm start "../docker-compose.yml" "hackebein/ts3server" "." "freebsd_amd64" "freebsd_x86" "linux_alpine" "linux_amd64" "linux_x86" "mac" "win32" "win64"
+        run: npm start --prefix docker-compose_builder "../docker-compose.yml" "hackebein/ts3server" "." "linux_alpine" "linux_amd64"
       - name: Build container images
         run: docker-compose build
       - name: Remove untagged container images
@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Publish changed Images
         run: |
-          DOCKER_REPO_RELATIVE=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          DOCKER_REPO_RELATIVE=hackebein/ts3server
           for DOCKER_TAG in $(docker images --format '{{.Tag}}' "${DOCKER_REPO_RELATIVE}:*"); do
             IMAGE_NAME_RELATIVE=${DOCKER_REPO_RELATIVE}:${DOCKER_TAG}
             echo "[***] Compare ${IMAGE_NAME_RELATIVE} images ..."
