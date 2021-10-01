@@ -15,18 +15,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '8' # TODO: update to 14 (LTS)
-      - name: Update apt
-        run: sudo apt update
-      - name: Upgrade apt packages
-        run: sudo apt upgrade -y
-      - name: Update certificate storage
-        run: sudo update-ca-certificates --fresh
       - name: Install npm packages
         run: npm install --prefix docker-compose_builder
       - name: Build docker-compose.yml
         # TODO: do all possible containers
         # run: npm start "../docker-compose.yml" "hackebein/ts3server" "." "freebsd_amd64" "freebsd_x86" "linux_alpine" "linux_amd64" "linux_x86" "mac" "win32" "win64"
-        run: npm start --prefix docker-compose_builder "../docker-compose.yml" "hackebein/ts3server" "." "linux_alpine" "linux_amd64"
+        run: NODE_TLS_REJECT_UNAUTHORIZED=0 npm start --prefix docker-compose_builder "../docker-compose.yml" "hackebein/ts3server" "." "linux_alpine" "linux_amd64"
       - name: Build container images
         run: docker-compose build
       - name: Remove untagged container images
