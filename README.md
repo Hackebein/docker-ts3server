@@ -1,3 +1,5 @@
+## Build issues: There is a TLS issue in the build pipe that results into a wrong `latest` tag. Please use tag `3.13.6` instead!
+
 # What is TeamSpeak 3?
 
 TeamSpeak is a proprietary voice-over-Internet Protocol (VoIP) application for audio communication between users on a chat channel, much like a telephone conference call. Users typically use headphones with a microphone. The client software connects to a TeamSpeak server of the user's choice, from which the user may join chat channels.
