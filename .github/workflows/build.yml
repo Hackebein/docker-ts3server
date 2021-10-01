@@ -16,11 +16,11 @@ jobs:
         with:
           node-version: '8' # TODO: update to 14 (LTS)
       - name: Update apt
-        run: apt update
+        run: sudo apt update
       - name: Upgrade apt packages
-        run: apt upgrade -y
+        run: sudo apt upgrade -y
       - name: Update certificate storage
-        run: update-ca-certificates --fresh
+        run: sudo update-ca-certificates --fresh
       - name: Install npm packages
         run: npm install --prefix docker-compose_builder
       - name: Build docker-compose.yml
