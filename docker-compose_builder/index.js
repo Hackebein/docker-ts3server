@@ -41,7 +41,7 @@ let crawler = new Crawler({
             error.op = 'abort';
         }
         if(_.isUndefined(error.op)) {
-            setTimeout(done, 500);
+            setTimeout(done, 100);
         } else {
             done(error);
         }
