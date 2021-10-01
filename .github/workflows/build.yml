@@ -15,6 +15,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '8' # TODO: update to 14 (LTS)
+      - name: Update apt
+        run: apt update
+      - name: Upgrade apt packages
+        run: apt upgrade -y
+      - name: Update certificate storage
+        run: update-ca-certificates --fresh
       - name: Install npm packages
         run: npm install --prefix docker-compose_builder
       - name: Build docker-compose.yml
