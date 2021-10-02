@@ -13,8 +13,9 @@ jobs:
         uses: actions/checkout@v2
       - name: TEST
         run: |
-          curl -vvI https://files.teamspeak-services.com/releases/server/
-          curl -vvI https://files.teamspeak-services.com/pre_releases/server/
+          sudo apt-get update
+          sudo apt-get install -y ca-certificates libgnutls30
+          sudo update-ca-certificates
       - name: Install node
         uses: actions/setup-node@v1
         with:
