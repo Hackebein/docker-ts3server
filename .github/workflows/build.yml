@@ -13,8 +13,8 @@ jobs:
         uses: actions/checkout@v2
       - name: TEST
         run: |
-          curl --insecure -vvI https://files.teamspeak-services.com/releases/server/
-          curl --insecure -vvI https://files.teamspeak-services.com/pre_releases/server/
+          curl -vvI https://files.teamspeak-services.com/releases/server/
+          curl -vvI https://files.teamspeak-services.com/pre_releases/server/
       - name: Install node
         uses: actions/setup-node@v1
         with:
