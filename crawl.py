@@ -103,10 +103,10 @@ class Workflow_Builder:
         result.append(fragments.pop(0))
         result.append(self.fragment_suffix_cleanup(fragments.pop(0)))
         match fragments.pop(0):
-            case 'linux_x86':
-                result.append('linux')
-                result.append('386')
-                result.append(None)
+            #case 'linux_x86':
+            #    result.append('linux')
+            #    result.append('386')
+            #    result.append(None)
             case 'linux_amd64':
                 result.append('linux')
                 result.append('amd64')
