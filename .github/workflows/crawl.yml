@@ -1,0 +1,23 @@
+name: Crawl
+on:
+  schedule:
+  - cron: 0 2,14 * * *
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Crawl
+        run: |
+          python crawl.py
+      - name: commit and push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update TeamSpeak build list
+          file_pattern: .github/workflows/build.yml
