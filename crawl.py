@@ -188,6 +188,8 @@ class Workflow_Builder:
                 'runs-on': 'ubuntu-latest',
                 'steps': [
                     {
+                        'uses': 'actions/checkout@v2'
+                    }, {
                         'name': 'Set up QEMU',
                         'uses': 'docker/setup-qemu-action@v1'
                     }, {
