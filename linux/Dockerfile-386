@@ -7,7 +7,7 @@ ARG TS3SERVER_URL
 ARG TS3SERVER_ARCHIVE
 RUN wget --no-verbose "${TS3SERVER_URL}" -O "/tmp/${TS3SERVER_ARCHIVE}" \
  && tar -C /app --strip 1 -xf "/tmp/${TS3SERVER_ARCHIVE}"
-COPY build_linux /app
+COPY . /app
 RUN chmod ug+x /app/start.sh \
  && rm -rf \
         /app/CHANGELOG \
