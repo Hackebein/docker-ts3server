@@ -207,7 +207,7 @@ class Workflow_Builder:
                         'uses': 'docker/build-push-action@v2',
                         'with': {
                             'context': release['fragments'][2],
-                            'file': self.generate_dockerfile_name(release['fragments']),
+                            'file': f'{release["fragments"][2]}/{self.generate_dockerfile_name(release["fragments"])}',
                             'build-args': self.to_yaml_list({
                                 'TS3SERVER_VERSION': release['fragments'][0],
                                 'TS3SERVER_URL': release['mirrors'][0],
