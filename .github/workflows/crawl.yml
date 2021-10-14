@@ -14,7 +14,8 @@ jobs:
         with:
           python-version: 3.10.0
       - name: Install dependencies
-        uses: py-actions/py-dependency-install@v2
+        run: |
+          pip install -r requirements.txt
       - name: Crawl
         run: |
           python crawl.py
