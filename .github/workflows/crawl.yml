@@ -1,5 +1,8 @@
 name: Crawl
 on:
+  push:
+    branches:
+    - master
   schedule:
   - cron: 0 2,14 * * *
 jobs:
