@@ -6,8 +6,6 @@ from packaging.version import parse as parse_version
 from ruamel import yaml
 from urllib.parse import urljoin, urlparse
 
-from prettyprinter import pprint
-
 logging.basicConfig(
     format='%(asctime)s %(levelname)s:%(message)s',
     level=logging.INFO,
