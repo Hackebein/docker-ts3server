@@ -115,14 +115,14 @@ class Workflow_Builder:
                 result.append('linux')
                 result.append('amd64')
                 result.append('alpine')
-            case 'win32':
-                result.append('windows')
-                result.append('386')
-                result.append(None)
-            case 'win64':
-                result.append('windows')
-                result.append('amd64')
-                result.append(None)
+            #case 'win32':
+            #    result.append('windows')
+            #    result.append('386')
+            #    result.append(None)
+            #case 'win64':
+            #    result.append('windows')
+            #    result.append('amd64')
+            #    result.append(None)
             case _:
                 result.append(None)
                 result.append(None)
