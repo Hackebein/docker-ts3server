@@ -3656,6 +3656,56 @@ jobs:
         push: 'true'
         platforms: linux/amd64
         tags: hackebein/ts3server:3.13.3-alpine
+  v03_13_05-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.13.5
+          TS3SERVER_URL=https://files.teamspeak-services.com/pre_releases/server/3.13.5-beta1/teamspeak3-server_linux_amd64-3.13.5-beta1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.13.5-beta1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.13.5-beta1
+  v03_13_05-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.13.5
+          TS3SERVER_URL=https://files.teamspeak-services.com/pre_releases/server/3.13.5-beta1/teamspeak3-server_linux_alpine-3.13.5-beta1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.13.5-beta1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.13.5-beta1-alpine
   v03_13_05-linux-amd64:
     runs-on: ubuntu-latest
     steps:
