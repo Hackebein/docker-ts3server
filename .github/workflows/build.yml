@@ -2356,6 +2356,56 @@ jobs:
         push: 'true'
         platforms: linux/amd64
         tags: hackebein/ts3server:3.9.0-beta2-alpine
+  v03_09_00-exp01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.9.0
+          TS3SERVER_URL=https://files.teamspeak-services.com/pre_releases/server/3.9.0-exp1/teamspeak3-server_linux_amd64-3.9.0-exp1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.9.0-exp1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.9.0-exp1
+  v03_09_00-exp01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.9.0
+          TS3SERVER_URL=https://files.teamspeak-services.com/pre_releases/server/3.9.0-exp1/teamspeak3-server_linux_alpine-3.9.0-exp1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.9.0-exp1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.9.0-exp1-alpine
   v03_09_00-exp02-linux-amd64:
     runs-on: ubuntu-latest
     steps:
