@@ -6,6 +6,1456 @@ on:
   schedule:
   - cron: 0 4 * * 1
 jobs:
+  v03_00_12-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.12
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12/teamspeak3-server_linux_amd64-3.0.12.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.12
+  v03_00_12_01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.12.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.1/teamspeak3-server_linux_amd64-3.0.12.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.12.1
+  v03_00_12_02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.12.2
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.2/teamspeak3-server_linux_amd64-3.0.12.2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.12.2
+  v03_00_12_03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.12.3
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.12.3
+  v03_00_12_04-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.12.4
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.12.4/teamspeak3-server_linux_amd64-3.0.12.4.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.12.4.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.12.4
+  v03_00_13-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13/teamspeak3-server_linux_amd64-3.0.13.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13
+  v03_00_13_01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.1/teamspeak3-server_linux_amd64-3.0.13.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.1
+  v03_00_13_02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.2
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.2/teamspeak3-server_linux_amd64-3.0.13.2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.2
+  v03_00_13_03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.3
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.3/teamspeak3-server_linux_amd64-3.0.13.3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.3
+  v03_00_13_04-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.4
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.4/teamspeak3-server_linux_amd64-3.0.13.4.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.4.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.4
+  v03_00_13_05-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.5
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.5/teamspeak3-server_linux_amd64-3.0.13.5.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.5.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.5
+  v03_00_13_06-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.6
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.6
+  v03_00_13_07-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.7
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.7/teamspeak3-server_linux_amd64-3.0.13.7.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.7.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.7
+  v03_00_13_08-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.0.13.8
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.0.13.8/teamspeak3-server_linux_amd64-3.0.13.8.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.0.13.8.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.0.13.8
+  v03_01_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-1/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-beta1
+  v03_01_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-1/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-beta1-alpine
+  v03_01_00-beta02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-2/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-beta2
+  v03_01_00-beta02-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-2/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-beta2-alpine
+  v03_01_00-beta03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-3/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-beta3
+  v03_01_00-beta03-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.0-Beta-3/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-beta3-alpine
+  v03_01_00-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.0/teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0
+  v03_01_00-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.0/teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.0-alpine
+  v03_01_01-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.1-Beta-1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.1-beta1
+  v03_01_01-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.1-Beta-1/teamspeak3-server_linux_alpine-3.1.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.1-beta1-alpine
+  v03_01_01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.1
+  v03_01_01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_alpine-3.1.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.1-alpine
+  v03_01_02-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.2
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.2-Beta-1/teamspeak3-server_linux_amd64-3.1.2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.2-beta1
+  v03_01_02-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.2
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.2-Beta-1/teamspeak3-server_linux_alpine-3.1.2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.2-beta1-alpine
+  v03_01_02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.2
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.2/teamspeak3-server_linux_amd64-3.1.2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.2
+  v03_01_02-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.2
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.2/teamspeak3-server_linux_alpine-3.1.2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.2-alpine
+  v03_01_03-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.3
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.3-Beta-1/teamspeak3-server_linux_amd64-3.1.3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.3-beta1
+  v03_01_03-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.3
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.1.3-Beta-1/teamspeak3-server_linux_alpine-3.1.3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.3-beta1-alpine
+  v03_01_03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.1.3
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.3/teamspeak3-server_linux_amd64-3.1.3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.1.3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.3
+  v03_01_03-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.1.3
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.1.3/teamspeak3-server_linux_alpine-3.1.3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.1.3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.1.3-alpine
+  v03_02_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.2.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.2.0-Beta-1/teamspeak3-server_linux_amd64-3.2.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.2.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.2.0-beta1
+  v03_02_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.2.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.2.0-Beta-1/teamspeak3-server_linux_alpine-3.2.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.2.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.2.0-beta1-alpine
+  v03_02_00-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.2.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.2.0/teamspeak3-server_linux_amd64-3.2.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.2.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.2.0
+  v03_02_00-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.2.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.2.0/teamspeak3-server_linux_alpine-3.2.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.2.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.2.0-alpine
+  v03_03_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-1/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-beta1
+  v03_03_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-1/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-beta1-alpine
+  v03_03_00-beta02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-2/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-beta2
+  v03_03_00-beta02-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-2/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-beta2-alpine
+  v03_03_00-beta03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-3/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-beta3
+  v03_03_00-beta03-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.0-Beta-3/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-beta3-alpine
+  v03_03_00-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0
+  v03_03_00-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.3.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.0/teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.0-alpine
+  v03_03_01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.3.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.1/teamspeak3-server_linux_amd64-3.3.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.1
+  v03_03_01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.3.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.3.1/teamspeak3-server_linux_alpine-3.3.1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.1-alpine
+  v03_03_01-steadyclock-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.3.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.1-steadyclock/teamspeak3-server_linux_amd64-3.3.1-steadyclock.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.3.1-steadyclock.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.1-steadyclock
+  v03_03_01-steadyclock-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.3.1
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.3.1-steadyclock/teamspeak3-server_linux_alpine-3.3.1-steadyclock.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.3.1-steadyclock.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.3.1-steadyclock-alpine
+  v03_04_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.4.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.4.0-Beta-1/teamspeak3-server_linux_amd64-3.4.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.4.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.4.0-beta1
+  v03_04_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.4.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.4.0-Beta-1/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.4.0-beta1-alpine
+  v03_04_00-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.4.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_amd64-3.4.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.4.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.4.0
+  v03_04_00-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.4.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.4.0/teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.4.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.4.0-alpine
+  v03_05_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.5.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-1/teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.5.0-beta1
+  v03_05_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.5.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-1/teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.5.0-beta1-alpine
+  v03_05_00-beta02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.5.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-2/teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.5.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.5.0-beta2
+  v03_05_00-beta02-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.5.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.5.0-Beta-2/teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.5.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.5.0-beta2-alpine
   v03_05_00-linux-amd64:
     runs-on: ubuntu-latest
     steps:
@@ -106,6 +1556,106 @@ jobs:
         push: 'true'
         platforms: linux/amd64
         tags: hackebein/ts3server:3.5.1-alpine
+  v03_06_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.6.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.6.0-Beta-1/teamspeak3-server_linux_amd64-3.6.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.6.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.6.0-beta1
+  v03_06_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.6.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.6.0-Beta-1/teamspeak3-server_linux_alpine-3.6.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.6.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.6.0-beta1-alpine
+  v03_06_00-beta02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.6.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.6.0-Beta-2/teamspeak3-server_linux_amd64-3.6.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.6.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.6.0-beta2
+  v03_06_00-beta02-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.6.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.6.0-Beta-2/teamspeak3-server_linux_alpine-3.6.0.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.6.0.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.6.0-beta2-alpine
   v03_06_00-linux-amd64:
     runs-on: ubuntu-latest
     steps:
@@ -206,6 +1756,206 @@ jobs:
         push: 'true'
         platforms: linux/amd64
         tags: hackebein/ts3server:3.6.1-alpine
+  v03_07_00-beta01-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.7.0-beta1/teamspeak3-server_linux_amd64-3.7.0-beta1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.7.0-beta1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-beta1
+  v03_07_00-beta01-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.7.0-beta1/teamspeak3-server_linux_alpine-3.7.0-beta1.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.7.0-beta1.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-beta1-alpine
+  v03_07_00-beta02-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.7.0-beta2/teamspeak3-server_linux_amd64-3.7.0-beta2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.7.0-beta2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-beta2
+  v03_07_00-beta02-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.7.0-beta2/teamspeak3-server_linux_alpine-3.7.0-beta2.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.7.0-beta2.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-beta2-alpine
+  v03_07_00-beta03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.7.0-beta3/teamspeak3-server_linux_amd64-3.7.0-beta3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.7.0-beta3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-beta3
+  v03_07_00-beta03-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=http://dl.4players.de/ts/releases/pre_releases/server/3.7.0-beta3/teamspeak3-server_linux_alpine-3.7.0-beta3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.7.0-beta3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-beta3-alpine
+  v03_07_00-exp03-linux-amd64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=https://files.teamspeak-services.com/pre_releases/server/3.7.0-exp3/teamspeak3-server_linux_amd64-3.7.0-exp3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.7.0-exp3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-exp3
+  v03_07_00-exp03-linux-amd64-alpine:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: linux
+        file: linux/Dockerfile-amd64-alpine
+        build-args: |-
+          TS3SERVER_VERSION=3.7.0
+          TS3SERVER_URL=https://files.teamspeak-services.com/pre_releases/server/3.7.0-exp3/teamspeak3-server_linux_alpine-3.7.0-exp3.tar.bz2
+          TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.7.0-exp3.tar.bz2
+        push: 'true'
+        platforms: linux/amd64
+        tags: hackebein/ts3server:3.7.0-exp3-alpine
   v03_07_00-linux-amd64:
     runs-on: ubuntu-latest
     steps:
