@@ -1526,7 +1526,7 @@ jobs:
         file: linux/Dockerfile-amd64
         build-args: |-
           TS3SERVER_VERSION=3.5.1
-          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.5.1/teamspeak3-server_linux_amd64-3.5.1.tar.bz2
+          TS3SERVER_URL=https://files.teamspeak-services.com/releases/server/3.5.1/teamspeak3-server_linux_amd64-3.5.1.tar.bz2
           TS3SERVER_ARCHIVE=teamspeak3-server_linux_amd64-3.5.1.tar.bz2
         push: 'true'
         platforms: linux/amd64
@@ -1551,7 +1551,7 @@ jobs:
         file: linux/Dockerfile-amd64-alpine
         build-args: |-
           TS3SERVER_VERSION=3.5.1
-          TS3SERVER_URL=http://dl.4players.de/ts/releases/3.5.1/teamspeak3-server_linux_alpine-3.5.1.tar.bz2
+          TS3SERVER_URL=https://files.teamspeak-services.com/releases/server/3.5.1/teamspeak3-server_linux_alpine-3.5.1.tar.bz2
           TS3SERVER_ARCHIVE=teamspeak3-server_linux_alpine-3.5.1.tar.bz2
         push: 'true'
         platforms: linux/amd64
