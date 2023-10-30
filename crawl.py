@@ -221,8 +221,7 @@ class Workflow_Builder:
                 ]
             }
 
-        workflow = yaml(typ='rt')
-        workflow.load(open(self.file, 'r'), Loader=yaml.RoundTripLoader)
+        workflow = yaml.load(open(self.file, 'r'), Loader=yaml.RoundTripLoader)
         workflow['jobs'] = jobs
         yaml.dump(workflow, open(self.file, 'w'), Dumper=yaml.RoundTripDumper)
 
