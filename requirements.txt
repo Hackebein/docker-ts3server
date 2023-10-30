@@ -1,4 +1,4 @@
 bs4
 packaging
 requests
-ruamel.yaml
+ruamel.yaml==2.3.2
