@@ -1,4 +1,4 @@
 bs4
-packaging
-requests
-ruamel.yaml==2.3.2
+packaging~=23.2
+requests~=2.31.0
+ruamel.yaml<0.18
